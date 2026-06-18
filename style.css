@@ -727,6 +727,52 @@ a {
   color: var(--blue);
   font-weight: 800;
 }
+/* Typography compact patch */
+
+.hero h1,
+.section-heading h2,
+.two-column h2,
+.project-card h2,
+.learning-grid h2,
+.contact-card h2 {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.hero h1 {
+  max-width: 820px;
+  font-size: clamp(38px, 4.2vw, 58px);
+  line-height: 1.16;
+  letter-spacing: -0.05em;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px, 3.2vw, 44px);
+  line-height: 1.18;
+}
+
+.two-column h2,
+.learning-grid h2 {
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.18;
+}
+
+.project-content h2 {
+  font-size: clamp(32px, 3.4vw, 46px);
+  line-height: 1.16;
+}
+
+.contact-card h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.18;
+}
+
+.hero-description,
+.section-heading p,
+.learning-grid p,
+.contact-card p {
+  word-break: keep-all;
+}
 
 /* Responsive */
 

@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  color: #172033;
+  background: #f5f8fc;
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 96px 0;
+  background: linear-gradient(135deg, #0f2f5f, #1d74d8);
+  color: white;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b9dcff;
+}
+
+.hero h1 {
+  max-width: 780px;
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.2;
+}
+
+.hero-desc {
+  max-width: 720px;
+  margin: 24px 0 0;
+  font-size: 18px;
+  color: #e6f2ff;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn.primary {
+  background: white;
+  color: #145fc0;
+}
+
+.btn.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section.light {
+  background: #eaf2fb;
+}
+
+.section h2 {
+  margin: 0 0 24px;
+  font-size: 30px;
+}
+
+.section p {
+  max-width: 820px;
+  margin: 0;
+  color: #4b5b72;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.card,
+.project-card {
+  padding: 24px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(16, 46, 90, 0.08);
+}
+
+.card h3,
+.project-card h3 {
+  margin: 0 0 12px;
+  color: #13294b;
+}
+
+.project-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e1efff;
+  color: #145fc0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #145fc0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer {
+  padding: 28px 0;
+  background: #0f1f36;
+  color: #b8c7dc;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 72px 0;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

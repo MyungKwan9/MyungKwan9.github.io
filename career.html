@@ -4,50 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>MK Career Profile</title>
+
   <meta
     name="description"
-    content="CS/VAN 운영 경험, KPI 시각화, UI/UX 학습, AI 활용 역량을 정리한 MK의 이력서 및 경력기술 페이지입니다."
+    content="CS/VAN 운영 경험을 기반으로 반복 문의, 원격지원, FAQ 구조화, KPI 기획, 업무 시각화 역량을 정리한 MK의 경력기술서형 커리어 페이지입니다."
   />
 
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="./index.html" class="logo">
-        <span class="logo-dot"></span>
-        MK Resume
-      </a>
+  <header class="career-document-header">
+    <div class="container career-header-inner">
+      <div class="career-header-top">
+        <a href="./index.html" class="career-back-link">← Portfolio</a>
 
-      <nav class="nav">
-        <a href="./index.html">Portfolio</a>
-        <a href="#summary">Summary</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-      </nav>
+        <div class="career-header-meta">
+          <span>Career Brief</span>
+          <span>CS / VAN Operations</span>
+          <span>GitHub Pages</span>
+        </div>
+      </div>
+
+      <div class="career-title-row">
+        <div>
+          <p class="career-label">MK Career Profile</p>
+          <h1>Myung Kwan Jung</h1>
+          <p class="career-role">
+            CS / VAN Operations Support · FAQ Structuring · KPI Dashboard Planning
+          </p>
+        </div>
+
+        <nav class="career-page-nav" aria-label="career page navigation">
+          <a href="#summary">Summary</a>
+          <a href="#experience">Experience</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">Career Summary · Operations · KPI Visualization</p>
+    <section class="career-intro section">
+      <div class="container career-intro-grid">
+        <div class="career-intro-main">
+          <p class="eyebrow">Career Description · Operations · Knowledge Structuring</p>
 
-          <h1>Resume & Career Profile</h1>
+          <h2>
+            현업 CS/VAN 운영 경험을 바탕으로<br />
+            반복 문의와 업무 흐름을 구조화합니다.
+          </h2>
 
-          <p class="hero-description">
-            CS 상담·원격지원과 VAN 대리점 전산/결제 업무 경험을 바탕으로
-            서비스 운영, 업무 프로세스 이해, KPI 구조화, 데이터 시각화,
-            AI 활용 업무 개선 역량을 확장하고 있습니다.
+          <p>
+            고객 상담, 원격지원, VAN 결제 운영 환경에서 반복되는 문의와
+            업무 이슈를 경험해왔습니다. 현재는 이 경험을 기반으로 FAQ,
+            업무 문서화, KPI 기준 정리, 대시보드 화면 기획 역량을 확장하고 있습니다.
           </p>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="./index.html">
-              Back to Portfolio
-            </a>
+          <div class="career-intro-actions">
+            <a class="btn btn-primary" href="./index.html">View Portfolio</a>
 
             <a
               class="btn btn-secondary"
@@ -58,69 +76,65 @@
               View Dashboard
             </a>
           </div>
-
-          <div class="hero-tags" aria-label="resume keywords">
-            <span>CS Operations</span>
-            <span>VAN / Payment</span>
-            <span>KPI Planning</span>
-            <span>UI/UX Learning</span>
-            <span>AI Workflow</span>
-          </div>
         </div>
 
-        <aside class="hero-panel" aria-label="resume summary cards">
-          <div class="panel-card panel-main">
-            <p class="panel-label">Target Position</p>
-            <h2>Service Operations & CX Strategy</h2>
-            <p>
-              현업 운영 경험을 기반으로 문제를 구조화하고,
-              개선 가능한 지표와 화면으로 전환하는 실무형 인재를 목표로 합니다.
-            </p>
-          </div>
+        <aside class="career-snapshot-card" aria-label="career snapshot">
+          <p class="snapshot-title">Resume Snapshot</p>
 
-          <div class="metric-grid">
-            <div class="metric-card">
-              <strong>CS</strong>
-              <span>상담 / 원격지원</span>
+          <dl class="snapshot-list">
+            <div>
+              <dt>Current Focus</dt>
+              <dd>CS / VAN Operations Support</dd>
             </div>
 
-            <div class="metric-card">
-              <strong>VAN</strong>
-              <span>결제 운영 흐름</span>
+            <div>
+              <dt>Core Strength</dt>
+              <dd>Issue Classification · FAQ Structuring</dd>
             </div>
 
-            <div class="metric-card">
-              <strong>UX</strong>
-              <span>화면 구조 학습</span>
+            <div>
+              <dt>Portfolio Direction</dt>
+              <dd>KPI Planning · Dashboard MVP</dd>
             </div>
 
-            <div class="metric-card">
-              <strong>AI</strong>
-              <span>문서화 / 설계 보조</span>
+            <div>
+              <dt>Growth Area</dt>
+              <dd>UI/UX · Data Visualization · AI Workflow</dd>
             </div>
-          </div>
+          </dl>
         </aside>
+      </div>
+
+      <div class="container career-quick-tags">
+        <span>CS Operations</span>
+        <span>Remote Support</span>
+        <span>VAN / Payment</span>
+        <span>FAQ Structuring</span>
+        <span>KPI Planning</span>
+        <span>Dashboard MVP</span>
       </div>
     </section>
 
     <section id="summary" class="section about-section">
       <div class="container two-column">
         <div>
-          <p class="section-kicker">Profile Summary</p>
-          <h2>운영 경험을 기반으로 서비스 개선 방향을 정리합니다.</h2>
+          <p class="section-kicker">Career Summary</p>
+          <h2>경력의 중심은 단순 상담이 아니라 문제 흐름을 이해하는 경험입니다.</h2>
         </div>
 
         <div class="text-block">
           <p>
-            저는 CS 고객센터와 VAN 대리점 전산·결제 업무를 경험하며
-            고객 문의, 원격지원, 결제 운영 흐름, 사업장 이슈, 정산 관련
-            업무 맥락을 이해해왔습니다.
+            저는 다양한 CS 및 원격지원 환경에서 사용자의 문의, 오류, 장애,
+            설정 문제를 직접 대응하며 반복되는 문제의 흐름을 경험했습니다.
+            단순히 문의를 처리하는 것을 넘어, 어떤 문제가 왜 반복되는지
+            정리하는 관점을 키워왔습니다.
           </p>
 
           <p>
-            현재는 한양사이버대학교 뉴미디어디자인 전공 학습과 AI 도구 활용을
-            통해 업무 데이터를 KPI, 화면 구조, 문서화, 대시보드 MVP 형태로
-            정리하는 역량을 확장하고 있습니다.
+            현재는 VAN 결제 운영과 학습 시스템 지원 업무를 바탕으로
+            결제, 정산, 운영 문의, 사용자 환경 이슈를 이해하고 있으며,
+            이를 FAQ, KPI, 문서화, 대시보드 MVP 형태로 정리하는 역량을
+            확장하고 있습니다.
           </p>
         </div>
       </div>
@@ -129,115 +143,137 @@
     <section id="experience" class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="section-kicker">Career Experience</p>
-          <h2>경력 요약</h2>
+          <p class="section-kicker">Core Experience</p>
+          <h2>경력기술 핵심 경험</h2>
           <p>
-            실제 세부 회사 정보와 민감한 업무 데이터는 공개하지 않고,
-            포트폴리오 목적에 맞게 직무 범위와 역량 중심으로 정리합니다.
+            공개 포트폴리오에서는 세부 회사 내부 정보와 민감한 업무 데이터는 제외하고,
+            직무 경험과 문제 해결 방식 중심으로 정리합니다.
           </p>
         </div>
 
         <div class="card-grid">
           <article class="info-card highlight-card">
             <span class="card-number">01</span>
-            <h3>CS 고객센터 / 원격지원</h3>
+            <h3>CS 운영 및 원격지원</h3>
             <p>
-              고객 문의 대응, 원격지원, 반복 이슈 파악, 업무 처리 흐름 정리 등
-              CS 운영 현장에서 발생하는 문제를 실무 관점으로 이해합니다.
+              고객 문의 대응, 프로그램 설치 지원, 오류 확인, 원격 환경 점검,
+              반복 이슈 정리 등 다양한 사용자 지원 경험을 보유하고 있습니다.
             </p>
           </article>
 
           <article class="info-card">
             <span class="card-number">02</span>
-            <h3>VAN 전산·결제 업무</h3>
+            <h3>VAN 결제 운영 이해</h3>
             <p>
-              VAN 대리점 운영 환경에서 거래, 정산, 보류정산, 사업장 이슈,
-              운영비용과 관련된 업무 흐름을 이해하고 있습니다.
+              결제 데이터 확인, 정산 관련 문의, 보류정산, 사업장 이슈,
+              대리점 커뮤니케이션 등 VAN 운영 흐름을 실무 관점에서 이해합니다.
             </p>
           </article>
 
           <article class="info-card">
             <span class="card-number">03</span>
-            <h3>업무 데이터 정리</h3>
+            <h3>반복 문의 유형화</h3>
             <p>
-              반복 문의와 운영 데이터를 단순 기록으로 두지 않고,
-              개선 가능한 지표와 화면 구조로 정리하는 방향을 학습하고 있습니다.
+              반복되는 문의와 장애 유형을 단순 기록으로 남기지 않고,
+              원인과 처리 흐름을 분류해 개선 가능한 형태로 정리합니다.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <span class="card-number">04</span>
+            <h3>FAQ / 지식 데이터 구조화</h3>
+            <p>
+              문의 데이터를 질문과 답변 구조로 정리하고, 운영자와 개발자가
+              활용할 수 있는 형태의 FAQ 및 지식 데이터로 구성하는 경험이 있습니다.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <span class="card-number">05</span>
+            <h3>KPI 관점의 업무 정리</h3>
+            <p>
+              거래, 정산, 비용, 이슈, 문의 유형처럼 운영 판단에 필요한 항목을
+              지표 기준으로 정리하고 화면 구조로 연결하는 방향을 학습하고 있습니다.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <span class="card-number">06</span>
+            <h3>문서화와 협업 전달</h3>
+            <p>
+              상담 현장의 언어를 매뉴얼, FAQ, 요구사항, 화면 구성안처럼
+              협업 가능한 문서 형태로 바꾸는 역량을 확장하고 있습니다.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section project-section">
+    <section id="timeline" class="section">
       <div class="container">
-        <div class="project-card">
-          <div class="project-content">
-            <p class="section-kicker light">Portfolio Project</p>
+        <div class="section-heading">
+          <p class="section-kicker">Selected Work Timeline</p>
+          <h2>대표 경력 흐름</h2>
+          <p>
+            전체 이력의 모든 회사를 나열하기보다, 현재 커리어 방향과 연결되는
+            경험을 중심으로 압축했습니다.
+          </p>
+        </div>
 
-            <h2>VAN Operations KPI Dashboard</h2>
-
+        <div class="process-grid">
+          <article class="process-card">
+            <span>Current</span>
+            <h3>CS / VAN Operations Support</h3>
             <p>
-              VAN 대리점 운영 업무 경험을 기반으로 거래 횟수, 거래 금액,
-              보류정산, 운영비용, 사업장별 이슈를 KPI로 구조화하고 시각화한
-              React 기반 대시보드 MVP입니다.
+              VAN 결제 운영, 정산 관련 문의, 대리점 커뮤니케이션,
+              학습 시스템 원격지원 및 반복 오류 대응을 수행하고 있습니다.
             </p>
+          </article>
 
-            <ul class="project-list">
-              <li>실제 업무 데이터는 사용하지 않고 익명화 샘플 데이터만 사용</li>
-              <li>운영 데이터를 KPI와 화면 구조로 전환하는 실험형 프로젝트</li>
-              <li>React, Vite, Recharts, GitHub, Vercel 기반 제작 및 배포</li>
-              <li>개발자 포트폴리오가 아닌 실무형 기획·운영·시각화 포트폴리오</li>
-            </ul>
+          <article class="process-card">
+            <span>Helpdesk</span>
+            <h3>Enterprise Remote Support</h3>
+            <p>
+              기업 내부 사용자 대상 그룹웨어, MS 제품, 사용자 환경 설정,
+              시스템 오류 관련 상담 및 원격지원 경험을 쌓았습니다.
+            </p>
+          </article>
 
-            <div class="project-actions">
-              <a
-                class="btn btn-white"
-                href="https://van-operations-kpi-dashboard.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Dashboard
-              </a>
+          <article class="process-card">
+            <span>Payment</span>
+            <h3>POS / Payment Device Support</h3>
+            <p>
+              편의점 POS 기기와 결제 시스템 오류를 원격으로 점검하고,
+              운영 환경에서 발생하는 장애 대응 흐름을 경험했습니다.
+            </p>
+          </article>
 
-              <a
-                class="btn btn-ghost"
-                href="./index.html"
-              >
-                Portfolio Main
-              </a>
-            </div>
-          </div>
+          <article class="process-card">
+            <span>Process</span>
+            <h3>Certificate / Procedure Support</h3>
+            <p>
+              인증서 신청, 발급, 저장, 복사 등 절차 기반 서비스에서 발생하는
+              사용자 혼란과 오류 패턴을 대응했습니다.
+            </p>
+          </article>
 
-          <div class="dashboard-preview" aria-label="resume dashboard preview">
-            <div class="preview-top">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+          <article class="process-card">
+            <span>Product</span>
+            <h3>Product CS / A/S Support</h3>
+            <p>
+              제품 사용 문의, 초기 설정 안내, 불만 접수, A/S 접수,
+              신입 상담원 교육 지원 경험을 보유하고 있습니다.
+            </p>
+          </article>
 
-            <div class="preview-stat">
-              <p>Career Direction</p>
-              <strong>KPI</strong>
-            </div>
-
-            <div class="preview-bars">
-              <span style="height: 68%;"></span>
-              <span style="height: 52%;"></span>
-              <span style="height: 82%;"></span>
-              <span style="height: 64%;"></span>
-              <span style="height: 74%;"></span>
-            </div>
-
-            <div class="preview-row">
-              <span>Operations</span>
-              <strong>Structured</strong>
-            </div>
-
-            <div class="preview-row">
-              <span>Service Insight</span>
-              <strong>Visualized</strong>
-            </div>
-          </div>
+          <article class="process-card">
+            <span>Operation</span>
+            <h3>Production / Quality Background</h3>
+            <p>
+              생산, 조립, 품질 기준, 장비 구조 이해 경험을 통해
+              현장 운영과 문제 해결의 기본 감각을 쌓았습니다.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -248,46 +284,46 @@
           <p class="section-kicker">Skills & Tools</p>
           <h2>핵심 역량과 사용 도구</h2>
           <p>
-            현재 수준은 전문 개발자 포지션이 아니라,
-            실무 운영 경험을 바탕으로 요구사항을 정리하고 MVP를 구성하는 방향입니다.
+            전문 개발자 포지션이 아니라, 현업 경험을 바탕으로 요구사항을 정리하고
+            화면 구조와 MVP로 검증할 수 있는 실무형 운영·기획 역량에 초점을 둡니다.
           </p>
         </div>
 
         <div class="process-grid">
           <article class="process-card">
             <span>01</span>
-            <h3>Service Operations</h3>
-            <p>CS 운영, 문의 흐름, 원격지원, 반복 이슈 정리</p>
+            <h3>Operations Understanding</h3>
+            <p>CS 상담, 원격지원, 결제 운영, 정산 문의, 사업장 이슈 흐름 이해</p>
           </article>
 
           <article class="process-card">
             <span>02</span>
-            <h3>VAN / Payment</h3>
-            <p>거래, 정산, 보류정산, 사업장 이슈 흐름 이해</p>
+            <h3>Issue Classification</h3>
+            <p>반복 문의, 오류 유형, 사용자 혼란 지점을 분류하고 정리</p>
           </article>
 
           <article class="process-card">
             <span>03</span>
-            <h3>KPI Planning</h3>
-            <p>운영 데이터를 판단 가능한 지표로 구조화</p>
+            <h3>FAQ / Documentation</h3>
+            <p>질문-응답 구조, 매뉴얼, 업무 안내 문서, 지식 데이터 정리</p>
           </article>
 
           <article class="process-card">
             <span>04</span>
-            <h3>Web Design</h3>
-            <p>HTML, CSS 기반 정적 페이지 제작 및 GitHub Pages 배포</p>
+            <h3>KPI Structuring</h3>
+            <p>운영 데이터를 거래, 비용, 정산, 이슈 기준으로 구조화</p>
           </article>
 
           <article class="process-card">
             <span>05</span>
-            <h3>Dashboard MVP</h3>
-            <p>React, Vite, Recharts 기반 대시보드 MVP 제작 경험</p>
+            <h3>Dashboard Planning</h3>
+            <p>카드, 차트, 표, 필터 등 사용자가 이해하기 쉬운 화면 구조 설계</p>
           </article>
 
           <article class="process-card">
             <span>06</span>
-            <h3>AI Workflow</h3>
-            <p>리서치, 문서화, 화면 설계, 코드 제작 보조에 AI 활용</p>
+            <h3>AI-assisted Workflow</h3>
+            <p>리서치, 문서화, 화면 설계, 코드 제작 보조에 AI 도구 활용</p>
           </article>
         </div>
       </div>
@@ -296,12 +332,12 @@
     <section id="education" class="section learning-section">
       <div class="container learning-grid">
         <div>
-          <p class="section-kicker">Education</p>
-          <h2>뉴미디어디자인 기반 실무형 역량 확장</h2>
+          <p class="section-kicker">Education & Growth</p>
+          <h2>뉴미디어디자인 기반 시각화 역량 확장</h2>
           <p>
             한양사이버대학교 뉴미디어디자인 전공 학습을 통해 웹디자인,
-            UI/UX, 데이터 시각화, AI 활용, 콘텐츠 기반 시각화 역량을
-            단계적으로 확장하고 있습니다.
+            UI/UX, 데이터 시각화, AI 활용 역량을 실무 경험과 연결하고 있습니다.
+            목표는 예쁜 화면이 아니라, 현업 문제가 더 잘 이해되는 구조를 만드는 것입니다.
           </p>
         </div>
 
@@ -310,37 +346,8 @@
           <span>HTML / CSS</span>
           <span>UI / UX</span>
           <span>Data Visualization</span>
-          <span>React / Vite</span>
-          <span>AI-assisted Workflow</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section">
-      <div class="container contact-card">
-        <div>
-          <p class="section-kicker light">Data Security</p>
-          <h2>실제 업무 데이터는 포트폴리오에 사용하지 않습니다.</h2>
-          <p>
-            실제 사업장명, 가맹점번호, 승인번호, 카드번호, 사업자번호,
-            전화번호, 주소, 담당자명, 실제 엑셀 원본 데이터는 사용하지 않으며,
-            공개용 포트폴리오에는 익명화 샘플 데이터만 사용합니다.
-          </p>
-        </div>
-
-        <div class="contact-actions">
-          <a class="btn btn-white" href="./index.html">
-            Portfolio
-          </a>
-
-          <a
-            class="btn btn-ghost"
-            href="https://github.com/MyungKwan9"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
+          <span>React / Vite MVP</span>
+          <span>AI Documentation</span>
         </div>
       </div>
     </section>
@@ -348,7 +355,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 MK Resume. Built with HTML, CSS, GitHub Pages.</p>
+      <p>© 2026 MK Career Profile. Career brief built with HTML, CSS, GitHub Pages.</p>
       <a href="#top">Back to top</a>
     </div>
   </footer>

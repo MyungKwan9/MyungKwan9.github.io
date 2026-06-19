@@ -1272,3 +1272,56 @@ a {
 .summary-block:first-child dd {
   font-size: 17px;
 }
+/* Tool stack panel spacing */
+.tool-stack-panel {
+  margin-top: 56px;
+  padding-top: 44px;
+  border-top: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+.tool-stack-heading {
+  margin-bottom: 28px;
+}
+
+.tool-stack-grid {
+  margin-top: 0;
+}
+
+/* Tool cards hover interaction */
+.tool-card {
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-6px);
+  color: var(--white);
+  border-color: rgba(147, 197, 253, 0.72);
+  background:
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.52), transparent 32%),
+    linear-gradient(135deg, #123a7a 0%, #2563eb 100%);
+  box-shadow: 0 28px 80px rgba(37, 99, 235, 0.28);
+}
+
+.tool-card:hover h3,
+.tool-card:hover p,
+.tool-card:hover span {
+  color: var(--white);
+}
+
+/* Print safety for tool cards */
+@media print {
+  .tool-stack-panel {
+    margin-top: 28px !important;
+    padding-top: 22px !important;
+  }
+
+  .tool-card {
+    box-shadow: none !important;
+  }
+}

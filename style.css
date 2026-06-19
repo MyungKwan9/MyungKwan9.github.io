@@ -1202,4 +1202,126 @@ a {
   .contact-actions {
     width: 100%;
   }
-}
+ }
+ /* Capabilities card interaction */
+ #capabilities .info-card {
+  border: 1.5px solid rgba(37, 99, 235, 0.22);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+ }
+
+ #capabilities .info-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.58);
+  box-shadow: 0 24px 70px rgba(37, 99, 235, 0.14);
+ }
+
+ #capabilities .highlight-card {
+  border-color: rgba(147, 197, 253, 0.62);
+ }
+
+ #capabilities .highlight-card:hover {
+  border-color: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 28px 80px rgba(37, 99, 235, 0.28);
+ }
+ /* Capabilities cards - neutral default, blue on hover */
+#capabilities .info-card,
+#capabilities .highlight-card {
+  cursor: pointer;
+  color: var(--text);
+  border: 1.5px solid rgba(37, 99, 235, 0.22);
+  background: var(--surface);
+  box-shadow: 0 16px 50px rgba(15, 23, 42, 0.05);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease;
+ }
+
+ #capabilities .highlight-card h3,
+ #capabilities .highlight-card p {
+  color: inherit;
+ }
+
+ #capabilities .highlight-card .card-number {
+  color: var(--blue);
+  background: var(--blue-light);
+ }
+
+ #capabilities .info-card:hover,
+ #capabilities .highlight-card:hover {
+  transform: translateY(-6px);
+  color: var(--white);
+  border-color: rgba(147, 197, 253, 0.72);
+  background:
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.52), transparent 32%),
+    linear-gradient(135deg, #123a7a 0%, #2563eb 100%);
+  box-shadow: 0 28px 80px rgba(37, 99, 235, 0.28);
+ }
+
+ #capabilities .info-card:hover h3,
+ #capabilities .info-card:hover p,
+ #capabilities .highlight-card:hover h3,
+ #capabilities .highlight-card:hover p {
+  color: var(--white);
+ }
+
+ #capabilities .info-card:hover .card-number,
+ #capabilities .highlight-card:hover .card-number {
+  color: var(--blue-deep);
+  background: var(--white);
+ }
+ /* Career experience cards - neutral default, blue on hover */
+ #experience .info-card,
+ #experience .highlight-card {
+  cursor: pointer;
+  color: var(--text);
+  border: 1.5px solid rgba(37, 99, 235, 0.22);
+  background: var(--surface);
+  box-shadow: 0 16px 50px rgba(15, 23, 42, 0.05);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease;
+ }
+
+ #experience .highlight-card h3,
+ #experience .highlight-card p {
+  color: inherit;
+ }
+
+ #experience .highlight-card .card-number {
+  color: var(--blue);
+  background: var(--blue-light);
+ }
+
+ #experience .info-card:hover,
+ #experience .highlight-card:hover {
+  transform: translateY(-6px);
+  color: var(--white);
+  border-color: rgba(147, 197, 253, 0.72);
+  background:
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.52), transparent 32%),
+    linear-gradient(135deg, #123a7a 0%, #2563eb 100%);
+  box-shadow: 0 28px 80px rgba(37, 99, 235, 0.28);
+ } 
+
+ #experience .info-card:hover h3,
+ #experience .info-card:hover p,
+ #experience .highlight-card:hover h3,
+ #experience .highlight-card:hover p {
+  color: var(--white);
+ }
+
+ #experience .info-card:hover .card-number,
+ #experience .highlight-card:hover .card-number {
+  color: var(--blue-deep);
+  background: var(--white);
+ }

@@ -1408,6 +1408,197 @@ a {
   }
 }
 
+@media print {
+  /* Portfolio print optimization */
+
+  .hero {
+    padding-top: 24px !important;
+  }
+
+  .hero-grid,
+  .about-content-grid,
+  .project-card,
+  .learning-grid,
+  .contact-card {
+    display: block !important;
+  }
+
+  .hero-panel,
+  .profile-card img,
+  .dashboard-preview,
+  .contact-actions,
+  .project-actions {
+    display: none !important;
+  }
+
+  .profile-card {
+    max-width: 100% !important;
+    margin: 0 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .profile-card div {
+    padding: 12px 14px !important;
+  }
+
+  .profile-card strong {
+    font-size: 15px !important;
+  }
+
+  .profile-card span {
+    margin-top: 4px !important;
+    font-size: 11px !important;
+  }
+
+  .about-heading h2,
+  .hero h1,
+  .section-heading h2,
+  .project-content h2,
+  .learning-grid h2,
+  .contact-card h2 {
+    color: #111827 !important;
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.03em !important;
+    white-space: normal !important;
+  }
+
+  .eyebrow,
+  .section-kicker,
+  .section-kicker.light {
+    color: #1d4ed8 !important;
+    font-size: 10px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero-description,
+  .project-content p,
+  .learning-grid p,
+  .contact-card p,
+  .text-block p,
+  .info-card p,
+  .process-card p {
+    color: #374151 !important;
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+  }
+
+  .about-layout,
+  .about-content-grid,
+  .learning-grid {
+    gap: 14px !important;
+  }
+
+  .text-block,
+  .info-card,
+  .process-card,
+  .project-card,
+  .contact-card,
+  .learning-note,
+  .learning-note-wide {
+    padding: 14px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .project-card,
+  .contact-card {
+    background: #ffffff !important;
+  }
+
+  .project-content h2,
+  .contact-card h2 {
+    color: #111827 !important;
+  }
+
+  .project-content p,
+  .contact-card p,
+  .project-list li {
+    color: #374151 !important;
+  }
+
+  .project-list {
+    margin-top: 10px !important;
+    gap: 6px !important;
+  }
+
+  .project-list li {
+    padding-left: 14px !important;
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+
+  .project-list li::before {
+    top: 0.62em !important;
+    width: 5px !important;
+    height: 5px !important;
+    background: #2563eb !important;
+  }
+
+  .card-grid,
+  .process-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .info-card,
+  .process-card {
+    min-height: auto !important;
+  }
+
+  .info-card::after {
+    display: none !important;
+  }
+
+  .info-card h3,
+  .process-card h3 {
+    color: #111827 !important;
+    margin: 8px 0 4px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .card-number,
+  .process-card span {
+    color: #1d4ed8 !important;
+    background: transparent !important;
+    font-size: 10px !important;
+    font-weight: 900 !important;
+  }
+
+  .card-number {
+    width: auto !important;
+    height: auto !important;
+    display: inline !important;
+  }
+
+  .learning-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .learning-list span {
+    min-height: auto !important;
+    padding: 8px 10px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    font-size: 11px !important;
+  }
+}
+
 /* Career final highlight text */
 
 .career-highlight-text {

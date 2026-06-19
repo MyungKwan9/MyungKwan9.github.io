@@ -311,6 +311,32 @@ a {
   padding-top: 72px;
 }
 
+.about-layout {
+  display: grid;
+  gap: 34px;
+}
+
+.about-heading {
+  max-width: 100%;
+}
+
+.about-heading h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(32px, 3.1vw, 44px);
+  line-height: 1.16;
+  letter-spacing: -0.055em;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.about-content-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(0, 1fr);
+  gap: 72px;
+  align-items: center;
+}
+
 .two-column {
   display: grid;
   grid-template-columns: 0.88fr 1.12fr;
@@ -344,7 +370,6 @@ a {
 .profile-card {
   width: 100%;
   max-width: 420px;
-  margin-top: 28px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 30px;
@@ -355,7 +380,7 @@ a {
 .profile-card img {
   display: block;
   width: 100%;
-  height: 420px;
+  height: 390px;
   object-fit: cover;
   object-position: center;
   border-bottom: 1px solid var(--line);
@@ -381,7 +406,9 @@ a {
 }
 
 .about-text-card {
-  margin-top: 285px;
+  max-width: 620px;
+  margin-top: 0;
+  padding: 38px;
 }
 
 .section-heading {
@@ -1155,10 +1182,19 @@ a {
 @media (max-width: 920px) {
   .hero-grid,
   .two-column,
+  .about-content-grid,
   .project-card,
   .learning-grid,
   .contact-card {
     grid-template-columns: 1fr;
+  }
+
+  .about-heading h2 {
+    white-space: normal;
+  }
+
+  .about-text-card {
+    max-width: 100%;
   }
 
   .card-grid,
@@ -1209,6 +1245,22 @@ a {
     font-size: 16px;
   }
 
+  .about-heading h2 {
+    font-size: 34px;
+  }
+
+  .about-content-grid {
+    gap: 28px;
+  }
+
+  .profile-card {
+    max-width: 100%;
+  }
+
+  .profile-card img {
+    height: 360px;
+  }
+
   .metric-grid,
   .card-grid,
   .process-grid,
@@ -1245,6 +1297,14 @@ a {
     font-size: 34px;
   }
 
+  .about-heading h2 {
+    font-size: 30px;
+  }
+
+  .profile-card img {
+    height: 320px;
+  }
+
   .career-title-row h1 {
     font-size: 42px;
   }
@@ -1260,7 +1320,9 @@ a {
     width: 100%;
   }
 }
+
 /* Basic profile emphasis */
+
 .summary-block:first-child .summary-strip-title {
   font-size: 20px;
 }
@@ -1272,7 +1334,9 @@ a {
 .summary-block:first-child dd {
   font-size: 17px;
 }
+
 /* Tool stack panel spacing */
+
 .tool-stack-panel {
   margin-top: 56px;
   padding-top: 44px;
@@ -1288,6 +1352,7 @@ a {
 }
 
 /* Tool cards hover interaction */
+
 .tool-card {
   cursor: pointer;
   transition:
@@ -1315,6 +1380,7 @@ a {
 }
 
 /* Print safety for tool cards */
+
 @media print {
   .tool-stack-panel {
     margin-top: 28px !important;
@@ -1325,24 +1391,25 @@ a {
     box-shadow: none !important;
   }
 }
- /* Career final highlight text */
+
+/* Career final highlight text */
+
 .career-highlight-text {
+  display: inline-block;
+  margin-top: 6px;
   color: var(--blue);
   font-weight: 900;
+  text-align: center;
 }
+
 /* Learning final note center alignment */
+
 .learning-note-wide {
   text-align: center;
 }
 
 .learning-note-wide p {
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
-
-.career-highlight-text {
-  display: inline-block;
-  margin-top: 6px;
   text-align: center;
 }

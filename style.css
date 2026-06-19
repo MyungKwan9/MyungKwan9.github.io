@@ -1065,6 +1065,22 @@ a {
     display: none !important;
   }
 
+    .career-highlight-text {
+    display: block !important;
+    max-width: 760px !important;
+    margin: 8px auto 0 !important;
+    font-size: 13px !important;
+    line-height: 1.75 !important;
+    text-align: center !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+  }
+
+  .print-break {
+    display: block !important;
+  }
+
   body {
     background: #ffffff !important;
     color: var(--navy) !important;
@@ -1395,11 +1411,19 @@ a {
 /* Career final highlight text */
 
 .career-highlight-text {
-  display: inline-block;
-  margin-top: 6px;
+  display: block;
+  max-width: 820px;
+  margin: 8px auto 0;
   color: var(--blue);
   font-weight: 900;
+  line-height: 1.75;
   text-align: center;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.print-break {
+  display: none;
 }
 
 /* Learning final note center alignment */

@@ -4,883 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>CX Operations Improvement Project | MK Portfolio</title>
+  <title>CS/VAN Operations Improvement Case | MK Portfolio</title>
 
   <meta
     name="description"
-    content="CS/VAN 운영 경험을 바탕으로 반복 문의와 운영 이슈를 FAQ, 매뉴얼, 챗봇 DB, KPI Dashboard로 구조화한 운영 개선 사례입니다."
+    content="CS/VAN 운영 경험을 바탕으로 반복 문의와 운영 이슈를 FAQ, 매뉴얼, Q&A 구조화, KPI 시각화 MVP로 연결한 운영 개선 사례입니다."
   />
 
-  <style>
-    :root {
-      --cx-bg: #f8fbff;
-      --cx-white: #ffffff;
-      --cx-navy: #071f5c;
-      --cx-text: #1e293b;
-      --cx-muted: #64748b;
-      --cx-blue: #0b5cff;
-      --cx-blue-dark: #003fbd;
-      --cx-blue-soft: #eef5ff;
-      --cx-border: #dbe7f6;
-      --cx-shadow: 0 18px 45px rgba(15, 35, 85, 0.08);
-      --cx-radius-lg: 28px;
-      --cx-radius-md: 20px;
-      --cx-radius-sm: 14px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
-      background: var(--cx-bg);
-      color: var(--cx-text);
-      line-height: 1.65;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .cx-page {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 8% 0%, rgba(11, 92, 255, 0.08), transparent 30%),
-        radial-gradient(circle at 90% 10%, rgba(0, 63, 189, 0.07), transparent 32%),
-        linear-gradient(180deg, #ffffff 0%, #f8fbff 42%, #f4f8ff 100%);
-    }
-
-    .cx-container {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    /* Header */
-    .cx-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(219, 231, 246, 0.7);
-    }
-
-    .cx-header-inner {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .cx-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 900;
-      color: var(--cx-navy);
-      letter-spacing: -0.04em;
-    }
-
-    .cx-logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      color: #ffffff;
-      background: linear-gradient(135deg, var(--cx-blue), var(--cx-blue-dark));
-      box-shadow: 0 12px 24px rgba(11, 92, 255, 0.22);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .cx-nav {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 14px;
-      font-weight: 800;
-      color: #475569;
-    }
-
-    .cx-nav a:hover,
-    .cx-nav .cx-active {
-      color: var(--cx-blue);
-    }
-
-    /* Hero */
-    .cx-hero {
-      padding: 78px 0 68px;
-    }
-
-    .cx-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 0.95fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .cx-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: #eaf2ff;
-      color: var(--cx-blue);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      margin-bottom: 22px;
-    }
-
-    .cx-title {
-      margin: 0;
-      color: var(--cx-navy);
-      font-size: clamp(42px, 5.5vw, 68px);
-      line-height: 1.02;
-      letter-spacing: -0.075em;
-      font-weight: 950;
-    }
-
-    .cx-subtitle {
-      margin: 22px 0 18px;
-      color: var(--cx-blue);
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -0.035em;
-    }
-
-    .cx-desc {
-      max-width: 620px;
-      margin: 0;
-      color: #475569;
-      font-size: 16px;
-    }
-
-    .cx-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .cx-tag {
-      padding: 9px 16px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid #cfe0fb;
-      color: var(--cx-blue);
-      font-size: 13px;
-      font-weight: 900;
-      box-shadow: 0 8px 22px rgba(15, 35, 85, 0.04);
-    }
-
-    /* Dashboard Mock */
-    .cx-dashboard {
-      background: var(--cx-white);
-      border: 1px solid var(--cx-border);
-      border-radius: var(--cx-radius-lg);
-      box-shadow: var(--cx-shadow);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 64px 1fr;
-      min-height: 390px;
-    }
-
-    .cx-dashboard-side {
-      background: linear-gradient(180deg, #073b9d 0%, #082c78 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 24px 0;
-      gap: 24px;
-      color: #ffffff;
-    }
-
-    .cx-side-icon {
-      width: 24px;
-      height: 24px;
-      opacity: 0.95;
-    }
-
-    .cx-dashboard-main {
-      padding: 24px;
-    }
-
-    .cx-dashboard-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      gap: 16px;
-    }
-
-    .cx-dashboard-title {
-      margin: 0;
-      color: var(--cx-navy);
-      font-size: 16px;
-      font-weight: 950;
-      letter-spacing: -0.035em;
-    }
-
-    .cx-date {
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--cx-border);
-      color: #64748b;
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .cx-dashboard-kpis {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .cx-mini-kpi {
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid var(--cx-border);
-      background: #ffffff;
-    }
-
-    .cx-mini-kpi span {
-      display: block;
-      color: #64748b;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 7px;
-    }
-
-    .cx-mini-kpi strong {
-      display: block;
-      color: var(--cx-navy);
-      font-size: 17px;
-      font-weight: 950;
-      letter-spacing: -0.04em;
-    }
-
-    .cx-mini-kpi em {
-      display: block;
-      margin-top: 5px;
-      color: var(--cx-blue);
-      font-size: 11px;
-      font-style: normal;
-      font-weight: 900;
-    }
-
-    .cx-dashboard-charts {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 14px;
-    }
-
-    .cx-chart-card {
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--cx-border);
-      background: #ffffff;
-      min-height: 170px;
-    }
-
-    .cx-chart-title {
-      margin: 0 0 14px;
-      color: #334155;
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .cx-line-chart {
-      height: 105px;
-      position: relative;
-      border-left: 1px solid #dbe7f6;
-      border-bottom: 1px solid #dbe7f6;
-      background:
-        linear-gradient(to top, rgba(219, 231, 246, 0.5) 1px, transparent 1px);
-      background-size: 100% 26px;
-      overflow: hidden;
-    }
-
-    .cx-line-chart svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .cx-donut-wrap {
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .cx-donut {
-      width: 92px;
-      height: 92px;
-      border-radius: 50%;
-      background:
-        conic-gradient(#0b5cff 0 42%, #78a8ff 42% 66%, #bdd5ff 66% 82%, #e3ecff 82% 100%);
-      position: relative;
-    }
-
-    .cx-donut::after {
-      content: "12,845\A건";
-      white-space: pre;
-      position: absolute;
-      inset: 21px;
-      border-radius: 50%;
-      background: #ffffff;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: var(--cx-navy);
-      font-size: 13px;
-      font-weight: 950;
-      line-height: 1.2;
-    }
-
-    .cx-legend {
-      display: grid;
-      gap: 6px;
-      color: #64748b;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .cx-legend span::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      display: inline-block;
-      border-radius: 50%;
-      background: var(--cx-blue);
-      margin-right: 6px;
-    }
-
-    /* Sections */
-    .cx-section {
-      padding: 42px 0;
-    }
-
-    .cx-section-title {
-      margin: 0 0 22px;
-      color: var(--cx-navy);
-      font-size: 26px;
-      font-weight: 950;
-      letter-spacing: -0.055em;
-    }
-
-    .cx-card {
-      background: var(--cx-white);
-      border: 1px solid var(--cx-border);
-      border-radius: var(--cx-radius-md);
-      box-shadow: 0 14px 34px rgba(15, 35, 85, 0.055);
-    }
-
-    .cx-problem-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .cx-problem-card {
-      padding: 26px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .cx-icon-circle {
-      flex: 0 0 auto;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--cx-blue-soft);
-      color: var(--cx-blue);
-    }
-
-    .cx-icon-circle svg {
-      width: 32px;
-      height: 32px;
-    }
-
-    .cx-card-title {
-      margin: 0 0 7px;
-      color: var(--cx-navy);
-      font-size: 17px;
-      font-weight: 950;
-      letter-spacing: -0.04em;
-    }
-
-    .cx-card-text {
-      margin: 0;
-      color: #475569;
-      font-size: 14px;
-    }
-
-    /* Flow */
-    .cx-flow {
-      display: grid;
-      grid-template-columns: 1fr 34px 1fr 34px 1fr 34px 1fr;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .cx-flow-card {
-      position: relative;
-      padding: 24px 18px 22px;
-      text-align: center;
-      min-height: 190px;
-    }
-
-    .cx-flow-no {
-      position: absolute;
-      top: -12px;
-      left: 18px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--cx-blue);
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 950;
-    }
-
-    .cx-flow-icon {
-      width: 74px;
-      height: 74px;
-      border-radius: 22px;
-      border: 1px solid var(--cx-border);
-      background: #ffffff;
-      display: grid;
-      place-items: center;
-      color: var(--cx-blue);
-      margin: 0 auto 16px;
-    }
-
-    .cx-flow-icon svg {
-      width: 38px;
-      height: 38px;
-    }
-
-    .cx-arrow {
-      color: var(--cx-blue);
-      text-align: center;
-      font-size: 30px;
-      font-weight: 300;
-    }
-
-    /* Core Cases */
-    .cx-case-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .cx-case-card {
-      padding: 24px;
-      min-height: 340px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .cx-case-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .cx-case-mark {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--cx-blue);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 950;
-    }
-
-    .cx-case-title {
-      margin: 0;
-      color: var(--cx-navy);
-      font-size: 18px;
-      font-weight: 950;
-      letter-spacing: -0.04em;
-    }
-
-    .cx-case-list {
-      margin: 0 0 18px;
-      padding-left: 18px;
-      color: #334155;
-      font-size: 14px;
-    }
-
-    .cx-case-list li + li {
-      margin-top: 7px;
-    }
-
-    .cx-simple-table {
-      border: 1px solid var(--cx-border);
-      border-radius: 14px;
-      overflow: hidden;
-      font-size: 13px;
-      color: #334155;
-    }
-
-    .cx-simple-table div {
-      display: grid;
-      grid-template-columns: 0.8fr 1fr 1.4fr;
-    }
-
-    .cx-simple-table span {
-      padding: 10px;
-      border-bottom: 1px solid var(--cx-border);
-      border-right: 1px solid var(--cx-border);
-    }
-
-    .cx-simple-table div:last-child span {
-      border-bottom: 0;
-    }
-
-    .cx-simple-table span:last-child {
-      border-right: 0;
-    }
-
-    .cx-simple-table .cx-table-head span {
-      background: #f3f7fd;
-      color: var(--cx-navy);
-      font-weight: 900;
-    }
-
-    .cx-visual-row {
-      height: 116px;
-      border-radius: 16px;
-      background: #f4f8ff;
-      border: 1px solid var(--cx-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      color: var(--cx-blue);
-    }
-
-    .cx-visual-row svg {
-      width: 42px;
-      height: 42px;
-    }
-
-    .cx-dots {
-      color: #8ab2ff;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-    }
-
-    .cx-mini-dashboard {
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid var(--cx-border);
-      background: #f8fbff;
-    }
-
-    .cx-mini-bars {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .cx-mini-bars span {
-      height: 22px;
-      border-radius: 7px;
-      background: #e7effc;
-    }
-
-    .cx-mini-chart-row {
-      display: grid;
-      grid-template-columns: 1fr 82px;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .cx-mini-line {
-      height: 86px;
-      border-radius: 12px;
-      background: #ffffff;
-      border: 1px solid var(--cx-border);
-      overflow: hidden;
-    }
-
-    .cx-mini-line svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .cx-mini-donut {
-      width: 78px;
-      height: 78px;
-      border-radius: 50%;
-      background: conic-gradient(#0b5cff 0 52%, #86b2ff 52% 78%, #d8e6ff 78% 100%);
-      position: relative;
-    }
-
-    .cx-mini-donut::after {
-      content: "";
-      position: absolute;
-      inset: 20px;
-      border-radius: 50%;
-      background: #ffffff;
-    }
-
-    /* Outcome */
-    .cx-outcome-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .cx-outcome-card {
-      padding: 22px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .cx-outcome-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      color: var(--cx-blue);
-      background: var(--cx-blue-soft);
-      flex: 0 0 auto;
-    }
-
-    .cx-outcome-icon svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    /* Role */
-    .cx-role-panel {
-      overflow: hidden;
-    }
-
-    .cx-role-row {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-      border-bottom: 1px solid var(--cx-border);
-      min-height: 58px;
-    }
-
-    .cx-role-row:last-child {
-      border-bottom: 0;
-    }
-
-    .cx-role-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 22px;
-      background: #f8fbff;
-      color: var(--cx-navy);
-      font-weight: 950;
-      border-right: 1px solid var(--cx-border);
-    }
-
-    .cx-role-label svg {
-      width: 22px;
-      height: 22px;
-      color: var(--cx-blue);
-    }
-
-    .cx-role-value {
-      padding: 16px 22px;
-      color: #475569;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-    }
-
-    /* Closing */
-    .cx-closing {
-      margin: 38px 0 78px;
-      padding: 34px 56px;
-      border-radius: 30px;
-      border: 1px solid var(--cx-border);
-      background:
-        radial-gradient(circle at left, rgba(11, 92, 255, 0.09), transparent 28%),
-        #ffffff;
-      box-shadow: var(--cx-shadow);
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .cx-closing-icon {
-      width: 86px;
-      height: 86px;
-      border-radius: 50%;
-      background: var(--cx-blue-soft);
-      display: grid;
-      place-items: center;
-      color: var(--cx-blue);
-    }
-
-    .cx-closing-icon svg {
-      width: 44px;
-      height: 44px;
-    }
-
-    .cx-closing h2 {
-      margin: 0 0 18px;
-      color: var(--cx-navy);
-      font-size: 28px;
-      line-height: 1.35;
-      letter-spacing: -0.055em;
-      font-weight: 950;
-    }
-
-    .cx-career-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .cx-career-tags span {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: 1px solid #cfe0fb;
-      color: var(--cx-blue);
-      background: #ffffff;
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .cx-footer {
-      padding: 34px 0;
-      text-align: center;
-      color: #64748b;
-      font-size: 14px;
-      border-top: 1px solid rgba(219, 231, 246, 0.8);
-      background: rgba(255, 255, 255, 0.74);
-    }
-
-    /* Responsive */
-    @media (max-width: 1040px) {
-      .cx-hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cx-dashboard {
-        max-width: 720px;
-      }
-
-      .cx-problem-grid,
-      .cx-case-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cx-outcome-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cx-flow {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .cx-arrow {
-        transform: rotate(90deg);
-      }
-    }
-
-    @media (max-width: 720px) {
-      .cx-container {
-        width: min(100% - 28px, 1120px);
-      }
-
-      .cx-header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 14px 0;
-        gap: 12px;
-      }
-
-      .cx-nav {
-        flex-wrap: wrap;
-        gap: 12px;
-        font-size: 13px;
-      }
-
-      .cx-hero {
-        padding: 52px 0 42px;
-      }
-
-      .cx-title {
-        font-size: clamp(38px, 11vw, 52px);
-      }
-
-      .cx-subtitle {
-        font-size: 16px;
-      }
-
-      .cx-dashboard {
-        grid-template-columns: 1fr;
-      }
-
-      .cx-dashboard-side {
-        flex-direction: row;
-        justify-content: center;
-        padding: 14px;
-      }
-
-      .cx-dashboard-kpis,
-      .cx-dashboard-charts,
-      .cx-outcome-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cx-problem-card,
-      .cx-outcome-card {
-        align-items: flex-start;
-      }
-
-      .cx-role-row {
-        grid-template-columns: 1fr;
-      }
-
-      .cx-role-label {
-        border-right: 0;
-        border-bottom: 1px solid var(--cx-border);
-      }
-
-      .cx-closing {
-        grid-template-columns: 1fr;
-        padding: 28px;
-        text-align: left;
-      }
-
-      .cx-closing h2 {
-        font-size: 24px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./cx-improvement.css?v=3" />
 </head>
 
 <body>
@@ -908,97 +39,96 @@
             <span class="cx-badge">PROJECT CASE STUDY</span>
 
             <h1 class="cx-title">
-              CX Operations<br />
-              Improvement Project
+              CS/VAN Operations<br />
+              Improvement Case
             </h1>
 
             <p class="cx-subtitle">
-              고객 문의 유형 분석 · FAQ/챗봇 DB · 운영 매뉴얼 · KPI 시각화 개선 사례
+              반복 문의 유형화 · FAQ/Q&amp;A 구조화 · 운영 매뉴얼 · KPI 시각화 MVP
             </p>
 
             <p class="cx-desc">
-              CS/VAN 운영 경험을 바탕으로 반복 문의와 운영 이슈를 유형별로 분석하고,
-              FAQ/챗봇 DB와 운영 매뉴얼을 구조화하여 운영 효율성과 고객 응대 품질을
-              개선한 프로젝트입니다.
+              CS/VAN 현업에서 반복 문의와 운영 이슈를 발견하고, 이를 문의 유형 분류,
+              FAQ·Q&amp;A 구조화, 사용 매뉴얼, KPI 시각화 MVP 형태로 정리한 운영 개선 포트폴리오입니다.
+              모든 예시는 실제 고객정보가 아닌 익명화된 샘플 구조를 기반으로 제작했습니다.
             </p>
 
             <div class="cx-tags">
               <span class="cx-tag">VOC 분류</span>
-              <span class="cx-tag">FAQ</span>
-              <span class="cx-tag">매뉴얼</span>
-              <span class="cx-tag">KPI Dashboard</span>
+              <span class="cx-tag">FAQ / Q&amp;A</span>
+              <span class="cx-tag">운영 매뉴얼</span>
+              <span class="cx-tag">KPI Visualization</span>
             </div>
           </div>
 
-          <aside class="cx-dashboard" aria-label="CX Operations Dashboard mockup">
-            <div class="cx-dashboard-side">
-              <svg class="cx-side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11L12 4l9 7"/><path d="M5 10v10h14V10"/></svg>
-              <svg class="cx-side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
-              <svg class="cx-side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h10v18H7z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
-              <svg class="cx-side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5M12 16V8M16 16v-9"/></svg>
-              <svg class="cx-side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .36 2l.04.04a2 2 0 1 1-2.83 2.83l-.04-.04a1.8 1.8 0 0 0-2-.36 1.8 1.8 0 0 0-1 1.64V21a2 2 0 1 1-4 0v-.06a1.8 1.8 0 0 0-1-1.64 1.8 1.8 0 0 0-2 .36l-.04.04a2 2 0 1 1-2.83-2.83l.04-.04a1.8 1.8 0 0 0 .36-2 1.8 1.8 0 0 0-1.64-1H3a2 2 0 1 1 0-4h.06a1.8 1.8 0 0 0 1.64-1 1.8 1.8 0 0 0-.36-2l-.04-.04A2 2 0 1 1 7.13 3.9l.04.04a1.8 1.8 0 0 0 2 .36 1.8 1.8 0 0 0 1-1.64V3a2 2 0 1 1 4 0v.06a1.8 1.8 0 0 0 1 1.64 1.8 1.8 0 0 0 2-.36l.04-.04a2 2 0 1 1 2.83 2.83l-.04.04a1.8 1.8 0 0 0-.36 2 1.8 1.8 0 0 0 1.64 1H21a2 2 0 1 1 0 4h-.06a1.8 1.8 0 0 0-1.54 1z"/></svg>
+          <aside class="dashboard-visual" aria-label="Operations improvement visual mockup">
+            <div class="dashboard-visual-sidebar">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
 
-            <div class="cx-dashboard-main">
-              <div class="cx-dashboard-top">
-                <h2 class="cx-dashboard-title">CX Operations Dashboard</h2>
-                <span class="cx-date">2024.05.01 ~ 2024.05.31</span>
+            <div class="dashboard-visual-body">
+              <div class="dashboard-visual-top">
+                <h3>Operations Improvement</h3>
+                <div class="dashboard-badge">Sample View</div>
               </div>
 
-              <div class="cx-dashboard-kpis">
-                <div class="cx-mini-kpi">
-                  <span>거래 횟수</span>
-                  <strong>128,540</strong>
-                  <em>▲ 12.5%</em>
+              <div class="dashboard-stat-grid">
+                <div class="dashboard-stat-card">
+                  <div class="stat-icon"></div>
+                  <p>Inquiry Types</p>
+                  <strong>FAQ / Guide</strong>
                 </div>
-                <div class="cx-mini-kpi">
-                  <span>거래 금액</span>
-                  <strong>₩12.8B</strong>
-                  <em>▲ 8.7%</em>
+
+                <div class="dashboard-stat-card">
+                  <div class="stat-icon"></div>
+                  <p>Knowledge Assets</p>
+                  <strong>Q&amp;A Structure</strong>
                 </div>
-                <div class="cx-mini-kpi">
-                  <span>운영비용</span>
-                  <strong>₩85.4M</strong>
-                  <em>▼ 5.3%</em>
+
+                <div class="dashboard-stat-card">
+                  <div class="stat-icon"></div>
+                  <p>Manual Support</p>
+                  <strong>Process Guide</strong>
                 </div>
-                <div class="cx-mini-kpi">
-                  <span>사이트 이슈</span>
-                  <strong>312건</strong>
-                  <em>▲ 10.1%</em>
+
+                <div class="dashboard-stat-card">
+                  <div class="stat-icon"></div>
+                  <p>KPI Summary</p>
+                  <strong>Visual MVP</strong>
                 </div>
               </div>
 
-              <div class="cx-dashboard-charts">
-                <div class="cx-chart-card">
-                  <p class="cx-chart-title">일별 거래 추이</p>
-                  <div class="cx-line-chart">
-                    <svg viewBox="0 0 320 110" preserveAspectRatio="none">
-                      <polyline
-                        points="0,78 35,68 70,72 105,42 140,58 175,36 210,62 245,48 280,70 320,38"
-                        fill="none"
-                        stroke="#0b5cff"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M0,78 L35,68 L70,72 L105,42 L140,58 L175,36 L210,62 L245,48 L280,70 L320,38 L320,110 L0,110 Z"
-                        fill="rgba(11,92,255,0.08)"
-                      />
-                    </svg>
+              <div class="dashboard-panel-grid">
+                <div class="dashboard-panel large">
+                  <div class="panel-header">
+                    <span>Flow Overview</span>
+                  </div>
+
+                  <div class="abstract-line-chart">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                   </div>
                 </div>
 
-                <div class="cx-chart-card">
-                  <p class="cx-chart-title">문의 유형 분포</p>
-                  <div class="cx-donut-wrap">
-                    <div class="cx-donut"></div>
-                    <div class="cx-legend">
-                      <span>결제/승인 42%</span>
-                      <span>정보/조회 24%</span>
-                      <span>앱 사용 16%</span>
-                      <span>기타 18%</span>
-                    </div>
+                <div class="dashboard-panel">
+                  <div class="panel-header">
+                    <span>Case Map</span>
+                  </div>
+
+                  <div class="abstract-donut-wrap">
+                    <div class="abstract-donut"></div>
+                    <ul class="abstract-legend">
+                      <li><span></span> FAQ</li>
+                      <li><span></span> Manual</li>
+                      <li><span></span> KPI</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -1014,7 +144,12 @@
           <div class="cx-problem-grid">
             <article class="cx-card cx-problem-card">
               <div class="cx-icon-circle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 1-15.5 6.2"/><path d="M3 12A9 9 0 0 1 18.5 5.8"/><path d="M3 19v-5h5"/><path d="M21 5v5h-5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 12a9 9 0 0 1-15.5 6.2"/>
+                  <path d="M3 12A9 9 0 0 1 18.5 5.8"/>
+                  <path d="M3 19v-5h5"/>
+                  <path d="M21 5v5h-5"/>
+                </svg>
               </div>
               <div>
                 <h3 class="cx-card-title">반복 문의 발생</h3>
@@ -1024,21 +159,29 @@
 
             <article class="cx-card cx-problem-card">
               <div class="cx-icon-circle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
               </div>
               <div>
                 <h3 class="cx-card-title">내부 지식 분산</h3>
-                <p class="cx-card-text">개인 경험과 노하우에 의존하여 정보 품질과 일관성 유지가 어려움</p>
+                <p class="cx-card-text">개인 경험과 노하우에 의존하여 응대 기준과 정보 품질이 흔들릴 수 있음</p>
               </div>
             </article>
 
             <article class="cx-card cx-problem-card">
               <div class="cx-icon-circle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
               </div>
               <div>
                 <h3 class="cx-card-title">운영 이슈 가시성 부족</h3>
-                <p class="cx-card-text">결제·정산·이슈 흐름을 한눈에 보기 어려워 신속한 대응에 한계</p>
+                <p class="cx-card-text">문의·매뉴얼·지표가 분산되어 개선 우선순위를 빠르게 파악하기 어려움</p>
               </div>
             </article>
           </div>
@@ -1053,10 +196,13 @@
             <article class="cx-card cx-flow-card">
               <span class="cx-flow-no">01</span>
               <div class="cx-flow-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="M21 21l-4.35-4.35"/>
+                </svg>
               </div>
               <h3 class="cx-card-title">문의 발견</h3>
-              <p class="cx-card-text">VOC 데이터에서 반복 문의 패턴을 식별하고 정리</p>
+              <p class="cx-card-text">반복 문의와 운영 이슈의 패턴을 관찰하고 정리</p>
             </article>
 
             <div class="cx-arrow">→</div>
@@ -1064,10 +210,13 @@
             <article class="cx-card cx-flow-card">
               <span class="cx-flow-no">02</span>
               <div class="cx-flow-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h5l2 3h11v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M14 14h6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 7h5l2 3h11v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <path d="M14 14h6"/>
+                </svg>
               </div>
               <h3 class="cx-card-title">유형 분류</h3>
-              <p class="cx-card-text">문의 유형을 코드화하여 체계적으로 분류</p>
+              <p class="cx-card-text">문의 유형을 코드화하고 재사용 가능한 기준으로 정리</p>
             </article>
 
             <div class="cx-arrow">→</div>
@@ -1075,10 +224,13 @@
             <article class="cx-card cx-flow-card">
               <span class="cx-flow-no">03</span>
               <div class="cx-flow-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="8" width="14" height="10" rx="3"/><path d="M12 8V4"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 18v2h6v-2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/>
+                </svg>
               </div>
               <h3 class="cx-card-title">FAQ/매뉴얼 구조화</h3>
-              <p class="cx-card-text">FAQ와 챗봇 DB를 연계하고 운영 매뉴얼을 체계화</p>
+              <p class="cx-card-text">FAQ, Q&amp;A, 사용 매뉴얼을 응대 기준으로 재정리</p>
             </article>
 
             <div class="cx-arrow">→</div>
@@ -1086,10 +238,14 @@
             <article class="cx-card cx-flow-card">
               <span class="cx-flow-no">04</span>
               <div class="cx-flow-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5M12 16V8M16 16v-9"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19V5"/>
+                  <path d="M4 19h16"/>
+                  <path d="M8 16v-5M12 16V8M16 16v-9"/>
+                </svg>
               </div>
               <h3 class="cx-card-title">KPI 시각화</h3>
-              <p class="cx-card-text">핵심 지표를 시각화하여 운영 의사결정 지원</p>
+              <p class="cx-card-text">운영 흐름을 카드, 차트, 표 형태의 MVP로 시각화</p>
             </article>
           </div>
         </div>
@@ -1108,8 +264,8 @@
                 </div>
 
                 <ul class="cx-case-list">
-                  <li>문의 유형을 표준 코드로 정의</li>
-                  <li>일관된 분류 체계로 데이터 기반 관리</li>
+                  <li>반복 문의를 유형별 코드로 정리</li>
+                  <li>상담 기준과 운영 이슈를 한눈에 파악 가능하게 구조화</li>
                 </ul>
               </div>
 
@@ -1126,8 +282,8 @@
                 </div>
                 <div>
                   <span>SET-01</span>
-                  <span>정보/조회</span>
-                  <span>입금 지연 / 정산 문의</span>
+                  <span>정산/조회</span>
+                  <span>입금 지연 / 조회 문의</span>
                 </div>
                 <div>
                   <span>APP-01</span>
@@ -1141,21 +297,31 @@
               <div>
                 <div class="cx-case-head">
                   <span class="cx-case-mark">B</span>
-                  <h3 class="cx-case-title">FAQ / GPT 챗봇 DB 지원</h3>
+                  <h3 class="cx-case-title">FAQ / Q&amp;A 구조화 지원</h3>
                 </div>
 
                 <ul class="cx-case-list">
-                  <li>FAQ와 챗봇 DB 연계로 즉시 응답 지원</li>
-                  <li>정확한 정보 제공으로 상담 효율 향상</li>
+                  <li>반복 답변을 FAQ와 Q&amp;A 구조로 정리</li>
+                  <li>챗봇 응답 DB에 활용될 수 있는 문서 구조를 지원</li>
                 </ul>
               </div>
 
               <div class="cx-visual-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+                </svg>
                 <span class="cx-dots">···</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="8" width="14" height="10" rx="3"/><path d="M12 8V4"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="5" y="8" width="14" height="10" rx="3"/>
+                  <path d="M12 8V4"/>
+                  <circle cx="9" cy="13" r="1"/>
+                  <circle cx="15" cy="13" r="1"/>
+                </svg>
                 <span class="cx-dots">···</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/>
+                </svg>
               </div>
             </article>
 
@@ -1163,12 +329,12 @@
               <div>
                 <div class="cx-case-head">
                   <span class="cx-case-mark">C</span>
-                  <h3 class="cx-case-title">VAN Operations KPI Dashboard</h3>
+                  <h3 class="cx-case-title">VAN Operations KPI Dashboard MVP</h3>
                 </div>
 
                 <ul class="cx-case-list">
-                  <li>핵심 KPI를 한눈에 모니터링</li>
-                  <li>데이터 기반 의사결정 지원</li>
+                  <li>운영 지표를 카드, 차트, 표 구조로 시각화</li>
+                  <li>React/Vite/Recharts를 활용한 샘플 MVP 경험</li>
                 </ul>
               </div>
 
@@ -1204,41 +370,57 @@
           <div class="cx-outcome-grid">
             <article class="cx-card cx-outcome-card">
               <div class="cx-outcome-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/>
+                </svg>
               </div>
               <div>
                 <h3 class="cx-card-title">문의 유형화</h3>
-                <p class="cx-card-text">반복 문의를 체계적으로 분류하여 운영 효율성과 고객 경험 개선</p>
+                <p class="cx-card-text">반복 문의를 분류 가능한 운영 단위로 정리</p>
               </div>
             </article>
 
             <article class="cx-card cx-outcome-card">
               <div class="cx-outcome-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5h6"/><path d="M9 3h6v4H9z"/><path d="M6 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1"/><path d="M8 13l2 2 5-5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 5h6"/>
+                  <path d="M9 3h6v4H9z"/>
+                  <path d="M6 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1"/>
+                  <path d="M8 13l2 2 5-5"/>
+                </svg>
               </div>
               <div>
                 <h3 class="cx-card-title">응답 기준 표준화</h3>
-                <p class="cx-card-text">FAQ/매뉴얼 기반 응답으로 일관성 있는 고객 응대 가능</p>
+                <p class="cx-card-text">FAQ와 매뉴얼 기반으로 일관된 응대 기준 마련</p>
               </div>
             </article>
 
             <article class="cx-card cx-outcome-card">
               <div class="cx-outcome-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v1H7a4 4 0 0 0 0 8h1v1a4 4 0 0 0 8 0v-1h1a4 4 0 0 0 0-8h-1V6a4 4 0 0 0-4-4z"/><path d="M8 7h8M8 17h8"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16v16H4z"/>
+                  <path d="M8 9h8M8 13h8M8 17h5"/>
+                </svg>
               </div>
               <div>
-                <h3 class="cx-card-title">AI 활용 기반 마련</h3>
-                <p class="cx-card-text">챗봇 DB 구축으로 AI 상담 자동화 및 고도화 기반 확보</p>
+                <h3 class="cx-card-title">지식 자산화</h3>
+                <p class="cx-card-text">개인 노하우를 재사용 가능한 문서와 Q&amp;A 구조로 전환</p>
               </div>
             </article>
 
             <article class="cx-card cx-outcome-card">
               <div class="cx-outcome-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5M12 16V8M16 16v-9"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19V5"/>
+                  <path d="M4 19h16"/>
+                  <path d="M8 16v-5M12 16V8M16 16v-9"/>
+                </svg>
               </div>
               <div>
                 <h3 class="cx-card-title">운영 가시성 향상</h3>
-                <p class="cx-card-text">KPI Dashboard로 핵심 지표를 확인하고 신속한 의사결정 지원</p>
+                <p class="cx-card-text">운영 흐름을 카드, 차트, 표 형태로 파악 가능하게 구성</p>
               </div>
             </article>
           </div>
@@ -1247,20 +429,25 @@
 
       <section class="cx-section">
         <div class="cx-container">
-          <h2 class="cx-section-title">Role & Tools</h2>
+          <h2 class="cx-section-title">Role &amp; Tools</h2>
 
           <div class="cx-card cx-role-panel">
             <div class="cx-role-row">
               <div class="cx-role-label">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="7" r="4"/>
+                  <path d="M5.5 21a6.5 6.5 0 0 1 13 0"/>
+                </svg>
                 <span>역할</span>
               </div>
-              <div class="cx-role-value">문의 유형 정리, FAQ 구조화, 매뉴얼 작성, KPI 구조 설계</div>
+              <div class="cx-role-value">문의 유형 정리, FAQ/Q&amp;A 구조화, 매뉴얼 작성, KPI 구조 설계</div>
             </div>
 
             <div class="cx-role-row">
               <div class="cx-role-label">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5z"/>
+                </svg>
                 <span>도구</span>
               </div>
               <div class="cx-role-value">Excel, Microsoft Office, GPT, HTML/CSS, React/Vite, Recharts</div>
@@ -1268,18 +455,25 @@
 
             <div class="cx-role-row">
               <div class="cx-role-label">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 8.5l2 6M15.5 8.5l-2 6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="6" cy="6" r="3"/>
+                  <circle cx="18" cy="6" r="3"/>
+                  <circle cx="12" cy="18" r="3"/>
+                  <path d="M8.5 8.5l2 6M15.5 8.5l-2 6"/>
+                </svg>
                 <span>방식</span>
               </div>
-              <div class="cx-role-value">AI-assisted workflow</div>
+              <div class="cx-role-value">AI-assisted workflow / 운영 데이터 구조화 MVP</div>
             </div>
 
             <div class="cx-role-row">
               <div class="cx-role-label">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
                 <span>보안 기준</span>
               </div>
-              <div class="cx-role-value">실제 회사 데이터 미사용 / 익명·임의 샘플 데이터 사용</div>
+              <div class="cx-role-value">실제 회사 데이터, 고객정보, 사업장명, 승인번호, 카드번호, 가맹점번호 미사용 / 익명 샘플 데이터 사용</div>
             </div>
           </div>
         </div>
@@ -1288,13 +482,18 @@
       <section class="cx-container">
         <div class="cx-closing">
           <div class="cx-closing-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
           </div>
 
           <div>
             <h2>
-              고객 문의와 운영 이슈를 데이터로 연결하고,<br />
-              재사용 가능한 개선 자산으로 만들어 업무 가치를 높입니다.
+              고객 문의와 운영 이슈를 단순 처리로 끝내지 않고,<br />
+              재사용 가능한 개선 자산으로 구조화합니다.
             </h2>
 
             <div class="cx-career-tags">
@@ -1310,7 +509,7 @@
 
     <footer class="cx-footer">
       <div class="cx-container">
-        © MK Portfolio · CX Operations Improvement Project
+        © MK Portfolio · CS/VAN Operations Improvement Case
       </div>
     </footer>
   </div>

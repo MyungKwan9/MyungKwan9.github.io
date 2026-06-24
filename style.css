@@ -1628,3 +1628,85 @@ a {
   margin-right: auto;
   text-align: center;
 }
+
+/* Final card interaction override - balanced outline style */
+#capabilities .info-card,
+#experience .info-card,
+.process-card,
+.tool-card {
+  border: 2px solid rgba(37, 99, 235, 0.26);
+  background: var(--surface);
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.04),
+    0 16px 44px rgba(15, 23, 42, 0.055);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+/* Remove strong blue-light hover and keep subtle movement */
+@media (hover: hover) and (pointer: fine) {
+  #capabilities .info-card:hover,
+  #experience .info-card:hover,
+  .process-card:hover,
+  .tool-card:hover {
+    transform: translateY(-4px);
+    color: var(--text);
+    border-color: rgba(37, 99, 235, 0.48);
+    background: var(--surface);
+    box-shadow:
+      0 0 0 2px rgba(37, 99, 235, 0.08),
+      0 24px 58px rgba(15, 23, 42, 0.105);
+  }
+
+  #capabilities .info-card:hover h3,
+  #capabilities .info-card:hover p,
+  #experience .info-card:hover h3,
+  #experience .info-card:hover p,
+  .process-card:hover h3,
+  .process-card:hover p,
+  .tool-card:hover h3,
+  .tool-card:hover p,
+  .tool-card:hover span {
+    color: inherit;
+  }
+
+  #capabilities .info-card:hover .card-number,
+  #experience .info-card:hover .card-number {
+    color: var(--blue);
+    background: var(--blue-light);
+  }
+}
+
+/* Very light click feedback */
+#capabilities .info-card:active,
+#experience .info-card:active,
+.process-card:active,
+.tool-card:active {
+  transform: translateY(-1px);
+}
+
+/* Final stronger card outline */
+#capabilities .info-card,
+#experience .info-card,
+.process-card,
+.tool-card {
+  border-color: rgba(37, 99, 235, 0.42);
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.12),
+    0 16px 44px rgba(15, 23, 42, 0.06);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #capabilities .info-card:hover,
+  #experience .info-card:hover,
+  .process-card:hover,
+  .tool-card:hover {
+    border-color: rgba(37, 99, 235, 0.68);
+    box-shadow:
+      0 0 0 3px rgba(37, 99, 235, 0.10),
+      0 24px 58px rgba(15, 23, 42, 0.11);
+  }
+}

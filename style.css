@@ -1629,24 +1629,24 @@ a {
   text-align: center;
 }
 
-/* Final card interaction override - balanced outline style */
+/* Final interaction polish - homepage */
 #capabilities .info-card,
 #experience .info-card,
 .process-card,
 .tool-card {
-  border: 2px solid rgba(37, 99, 235, 0.26);
+  border: 2px solid rgba(37, 99, 235, 0.42);
   background: var(--surface);
   box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.04),
-    0 16px 44px rgba(15, 23, 42, 0.055);
+    0 0 0 1px rgba(37, 99, 235, 0.12),
+    0 16px 44px rgba(15, 23, 42, 0.06);
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease,
     border-color 0.22s ease,
-    background 0.22s ease;
+    background 0.22s ease,
+    color 0.22s ease;
 }
 
-/* Remove strong blue-light hover and keep subtle movement */
 @media (hover: hover) and (pointer: fine) {
   #capabilities .info-card:hover,
   #experience .info-card:hover,
@@ -1654,11 +1654,11 @@ a {
   .tool-card:hover {
     transform: translateY(-4px);
     color: var(--text);
-    border-color: rgba(37, 99, 235, 0.48);
+    border-color: rgba(37, 99, 235, 0.68);
     background: var(--surface);
     box-shadow:
-      0 0 0 2px rgba(37, 99, 235, 0.08),
-      0 24px 58px rgba(15, 23, 42, 0.105);
+      0 0 0 3px rgba(37, 99, 235, 0.1),
+      0 24px 58px rgba(15, 23, 42, 0.11);
   }
 
   #capabilities .info-card:hover h3,
@@ -1680,7 +1680,6 @@ a {
   }
 }
 
-/* Very light click feedback */
 #capabilities .info-card:active,
 #experience .info-card:active,
 .process-card:active,
@@ -1688,25 +1687,71 @@ a {
   transform: translateY(-1px);
 }
 
-/* Final stronger card outline */
-#capabilities .info-card,
-#experience .info-card,
-.process-card,
-.tool-card {
-  border-color: rgba(37, 99, 235, 0.42);
+/* Hero action buttons */
+.hero-actions .btn-primary,
+.hero-actions .btn-secondary {
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(37, 99, 235, 0.68);
   box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.12),
-    0 16px 44px rgba(15, 23, 42, 0.06);
+    0 0 0 1px rgba(37, 99, 235, 0.08),
+    0 12px 28px rgba(15, 23, 42, 0.07);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  #capabilities .info-card:hover,
-  #experience .info-card:hover,
-  .process-card:hover,
-  .tool-card:hover {
-    border-color: rgba(37, 99, 235, 0.68);
+  .hero-actions .btn-primary:hover,
+  .hero-actions .btn-secondary:hover {
+    transform: translateY(-3px);
+    color: var(--blue-deep);
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.86);
     box-shadow:
-      0 0 0 3px rgba(37, 99, 235, 0.10),
-      0 24px 58px rgba(15, 23, 42, 0.11);
+      0 0 0 3px rgba(37, 99, 235, 0.1),
+      0 18px 38px rgba(15, 23, 42, 0.1);
+  }
+}
+
+.hero-actions .btn-primary:active,
+.hero-actions .btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+/* Header navigation buttons */
+.site-header .nav {
+  gap: 14px;
+}
+
+.site-header .nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border: 2px solid rgba(37, 99, 235, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #475569;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.04),
+    0 10px 24px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-header .nav a:hover {
+    transform: translateY(-2px);
+    color: var(--blue);
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.72);
+    box-shadow:
+      0 0 0 3px rgba(37, 99, 235, 0.08),
+      0 16px 34px rgba(15, 23, 42, 0.08);
   }
 }

@@ -1014,3 +1014,38 @@ a {
   font-weight: 600 !important;
   max-width: 560px !important;
 }
+
+/* Balanced card outline + subtle interaction */
+.cx-flow-card,
+.cx-case-card,
+.cx-outcome-card {
+  position: relative;
+  border: 1px solid rgba(29, 78, 216, 0.34);
+  box-shadow:
+    0 0 0 1px rgba(29, 78, 216, 0.05),
+    0 14px 34px rgba(15, 35, 85, 0.055);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+/* Desktop hover only */
+@media (hover: hover) and (pointer: fine) {
+  .cx-flow-card:hover,
+  .cx-case-card:hover,
+  .cx-outcome-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(29, 78, 216, 0.58);
+    box-shadow:
+      0 0 0 2px rgba(29, 78, 216, 0.08),
+      0 22px 48px rgba(15, 35, 85, 0.11);
+  }
+}
+
+/* Very light click feedback */
+.cx-flow-card:active,
+.cx-case-card:active,
+.cx-outcome-card:active {
+  transform: translateY(-1px);
+}

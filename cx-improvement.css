@@ -1049,3 +1049,52 @@ a {
 .cx-outcome-card:active {
   transform: translateY(-1px);
 }
+
+/* Hero PDF button */
+.cx-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.cx-pdf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 22px;
+  border: 2px solid rgba(29, 78, 216, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--cx-heading-blue, #1d4ed8);
+  font-size: 14px;
+  font-weight: 950;
+  box-shadow:
+    0 0 0 1px rgba(29, 78, 216, 0.08),
+    0 12px 28px rgba(15, 35, 85, 0.07);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cx-pdf-button:hover {
+    transform: translateY(-3px);
+    border-color: rgba(29, 78, 216, 0.88);
+    background: rgba(29, 78, 216, 0.06);
+    box-shadow:
+      0 0 0 3px rgba(29, 78, 216, 0.1),
+      0 18px 38px rgba(15, 35, 85, 0.1);
+  }
+}
+
+.cx-pdf-button:active {
+  transform: translateY(-1px);
+}
+
+.cx-pdf-button {
+  cursor: pointer;
+}

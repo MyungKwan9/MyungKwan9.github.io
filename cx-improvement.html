@@ -39,8 +39,8 @@
             <span class="cx-badge">운영 개선 사례</span>
 
             <h1 class="cx-title">
-              CS/VAN 운영 개선<br />
-              Case Study
+              CS/VAN 운영 <br />
+              실무형 개선 Case
             </h1>
 
             <p class="cx-subtitle">
@@ -358,87 +358,70 @@
       </section>
 
       <section class="cx-section" id="knowledge-hub-mvp">
-        <div class="cx-container">
-          <h2 class="cx-section-title">반복 문의를 지식관리 구조로 전환하는 실험</h2>
+  <div class="cx-container">
+    <h2 class="cx-section-title">반복 문의를 지식관리 구조로 전환하는 실험</h2>
 
-          <article class="cx-card cx-case-card">
-            <div>
-              <div class="cx-case-head">
-                <span class="cx-case-mark">MVP</span>
-                <h3 class="cx-case-title">CS/VAN Knowledge Hub MVP</h3>
-              </div>
-
-              <p class="cx-card-text">
-                CS/VAN 운영 과정에서 반복되는 문의, 장애 대응 절차, FAQ 후보, 업무 개선 아이디어는
-                시간이 지나면 개인 메모나 산발적인 문서로 흩어지기 쉽습니다.
-                이를 검색 가능한 지식관리 구조로 정리하기 위해 React 기반의
-                CS/VAN Knowledge Hub MVP를 제작했습니다.
-              </p>
-
-              <ul class="cx-case-list">
-                <li>문서 등록, 수정, 삭제가 가능한 지식관리 앱 프로토타입</li>
-                <li>제목, 요약, 본문, 태그, 카테고리 기반 검색 구조</li>
-                <li>CS 운영, VAN 운영, FAQ, 업무개선, 장애대응, 매뉴얼 카테고리 분류</li>
-                <li>localStorage 기반 샘플 데이터 저장 및 새로고침 유지</li>
-                <li>데이터 처리 로직을 articleService로 분리해 향후 Supabase 연동을 고려</li>
-              </ul>
-
-              <p class="cx-card-text">
-                이 프로젝트는 실제 운영 시스템이 아니라, 반복 문의를 FAQ 후보로 전환하고
-                장애 대응 지식을 카테고리별로 축적하는 흐름을 실험하기 위한 프론트엔드 MVP입니다.
-              </p>
-
-              <div class="cx-tags">
-                <span class="cx-tag">React</span>
-                <span class="cx-tag">Vite</span>
-                <span class="cx-tag">LocalStorage</span>
-                <span class="cx-tag">Responsive UI</span>
-                <span class="cx-tag">Knowledge Management</span>
-              </div>
-
-              <p class="cx-card-text">
-                ※ 본 프로젝트는 실제 회사 시스템이나 실무 데이터를 사용하지 않은 포트폴리오용 프로토타입입니다.
-                모든 데이터는 샘플이며, 현재 버전은 브라우저 localStorage 기반으로 동작합니다.
-              </p>
-
-              <div class="cx-hero-actions">
-                <a
-                  class="cx-pdf-button"
-                  href="https://mk-vibe-lab.vercel.app"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  프로토타입 보기
-                </a>
-
-                <a
-                  class="cx-pdf-button"
-                  href="https://github.com/MyungKwan9/mk-vibe-lab"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub 보기
-                </a>
-              </div>
-            </div>
-
-            <div class="cx-board-visual">
-              <div class="cx-board-search">Search: 승인 오류 / 장애 / FAQ</div>
-              <div class="cx-board-tags">
-                <span>CS 운영</span>
-                <span>VAN 운영</span>
-                <span>FAQ</span>
-                <span>장애대응</span>
-              </div>
-              <div class="cx-board-list">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </article>
+    <article class="cx-card cx-case-card cx-knowledge-card">
+      <div>
+        <div class="cx-case-head">
+          <span class="cx-case-mark">MVP</span>
+          <h3 class="cx-case-title">CS/VAN Knowledge Hub MVP</h3>
         </div>
-      </section>
+
+        <p class="cx-card-text cx-knowledge-summary">
+          반복 문의, 장애 대응 절차, FAQ 후보, 업무 개선 아이디어를
+          등록·검색·분류할 수 있도록 설계한 React 기반 지식관리 앱 프로토타입입니다.
+        </p>
+
+        <ul class="cx-case-list cx-knowledge-list">
+          <li>문서 등록 / 수정 / 삭제</li>
+          <li>제목·본문·태그 기반 검색</li>
+          <li>CS 운영, VAN 운영, FAQ, 장애대응 카테고리 분류</li>
+          <li>localStorage 기반 샘플 데이터 저장</li>
+        </ul>
+
+        <p class="cx-card-text cx-knowledge-note">
+          ※ 실제 회사 시스템이나 실무 데이터를 사용하지 않은 포트폴리오용 MVP입니다.
+        </p>
+
+        <div class="cx-hero-actions cx-knowledge-actions">
+          <a
+            class="cx-pdf-button cx-primary-demo-button"
+            href="https://mk-vibe-lab.vercel.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            프로토타입 보기
+          </a>
+
+          <a
+            class="cx-pdf-button cx-secondary-code-button"
+            href="https://github.com/MyungKwan9/mk-vibe-lab"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub 보기
+          </a>
+        </div>
+      </div>
+
+      <div class="cx-board-visual">
+        <div class="cx-board-search">Search: 승인 오류 / 장애 / FAQ</div>
+        <div class="cx-board-tags">
+          <span>CS 운영</span>
+          <span>VAN 운영</span>
+          <span>FAQ</span>
+          <span>장애대응</span>
+        </div>
+        <div class="cx-board-list">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
 
       <section class="cx-section">
         <div class="cx-container">

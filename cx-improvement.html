@@ -12,7 +12,7 @@
   />
 
   <link rel="stylesheet" href="./cx-improvement.css?v=5" />
-  <link rel="stylesheet" href="./cx-improvement-case.css?v=1" />
+  <link rel="stylesheet" href="./cx-improvement-case.css?v=2" />
 </head>
 
 <body>
@@ -225,41 +225,130 @@
         <div class="cx-container">
           <h2 class="cx-section-title">대표 사례 · 상담 유형 코드화 및 월간 분석 체계</h2>
 
-          <article class="cx-card cx-case-card cx-knowledge-card">
-            <div>
-              <div class="cx-case-head">
-                <span class="cx-case-mark">CASE</span>
-                <h3 class="cx-case-title">분류 기준이 없던 상담 기록을 운영 데이터로 전환</h3>
+          <article class="cx-card cx-code-map-card">
+            <div class="cx-code-map-head">
+              <div class="cx-code-map-title-wrap">
+                <span class="cx-code-map-case">CASE</span>
+
+                <div>
+                  <h3>분류 기준이 없던 상담 기록을 운영 데이터로 전환</h3>
+                  <p>
+                    자유서술형 상담 기록을 4개 대분류와 16개 세부 코드로 표준화하고,
+                    일별 기록을 월간·분기 분석과 FAQ·SOP 후보 발굴로 연결했습니다.
+                  </p>
+                </div>
               </div>
 
-              <p class="cx-card-text cx-knowledge-summary">
-                기술지원, 학습문의, 사용문의, 기타의 4개 대분류 아래
-                총 16개 세부 코드를 설계했습니다. 상담자가 같은 기준으로 기록할 수 있도록
-                문의자 유형, 문의 내용, 조치 내용, 이관 부서, 완료 상태를 하나의 흐름으로 묶었습니다.
-              </p>
-
-              <ul class="cx-case-list cx-knowledge-list">
-                <li>상담 유형을 TS·LI·GI·OH 코드로 구분해 반복 문의를 집계 가능한 데이터로 전환</li>
-                <li>일별 기록을 카테고리별 집계, 원격지원 분석, 월간 요약, 분기별 요약으로 연결</li>
-                <li>개인 메모 중심 기록을 팀 단위 공유와 FAQ·SOP 후보 발굴이 가능한 구조로 개선</li>
-                <li>실제 운영 방식은 이후 본사의 Google Sheets 기반 응대 케이스 정리 체계에 참고·확장</li>
-              </ul>
-
-              <p class="cx-card-text cx-knowledge-note">
-                ※ 실제 고객명, 캠퍼스명, 연락처, 상세 장애 내용은 공개하지 않고 구조와 익명화 샘플만 사용
-              </p>
+              <div class="cx-code-map-metrics" aria-label="분류 체계 요약">
+                <span><strong>4</strong> 대분류</span>
+                <span><strong>16</strong> 세부 코드</span>
+                <span><strong>3</strong> 활용 단계</span>
+              </div>
             </div>
 
-            <div class="cx-simple-table" aria-label="상담 유형 코드 분류표">
-              <div class="cx-table-head"><span>대분류</span><span>코드</span><span>분류 범위</span></div>
-              <div><span>기술지원</span><span>TS1~TS4</span><span>프로그램·서비스별 기술 오류 및 원격지원</span></div>
-              <div><span>학습문의</span><span>LI1~LI3</span><span>교사·학생의 학습 기능 및 사용 방법</span></div>
-              <div><span>사용문의</span><span>GI1~GI6</span><span>기기·수강료·교재·앱·캠퍼스 업무</span></div>
-              <div><span>기타</span><span>OH1~OH3</span><span>연락 불가·부재·외부기관 및 협력업체</span></div>
+            <div class="cx-code-map-flow" aria-label="상담 기록 데이터 전환 흐름">
+              <div class="cx-code-map-stage">
+                <span class="cx-code-map-step">01 · INPUT</span>
+                <strong>자유서술형 상담 기록</strong>
+                <p>문의·조치 내용이 담당자별 방식으로 누적</p>
+              </div>
+
+              <div class="cx-code-map-arrow" aria-hidden="true">→</div>
+
+              <div class="cx-code-map-stage cx-code-map-stage-main">
+                <span class="cx-code-map-step">02 · CLASSIFY</span>
+                <strong>CS Inquiry Classification</strong>
+                <p>TS · LI · GI · OH 공통 코드 체계 적용</p>
+              </div>
+
+              <div class="cx-code-map-arrow" aria-hidden="true">→</div>
+
+              <div class="cx-code-map-stage">
+                <span class="cx-code-map-step">03 · ANALYZE</span>
+                <strong>운영 분석·지식화</strong>
+                <p>일별 기록 → 월간·분기 분석 → FAQ·SOP</p>
+              </div>
+            </div>
+
+            <div class="cx-code-map-grid">
+              <article class="cx-code-map-group cx-code-map-ts">
+                <div class="cx-code-map-group-head">
+                  <div class="cx-code-map-code">TS</div>
+                  <div>
+                    <span>Technical Support</span>
+                    <h4>기술지원</h4>
+                  </div>
+                </div>
+
+                <div class="cx-code-map-chip-list">
+                  <span><b>TS1</b> U2M · Dream One</span>
+                  <span><b>TS2</b> Dream Plus</span>
+                  <span><b>TS3</b> Ucube</span>
+                  <span><b>TS4</b> GLEC</span>
+                </div>
+              </article>
+
+              <article class="cx-code-map-group cx-code-map-li">
+                <div class="cx-code-map-group-head">
+                  <div class="cx-code-map-code">LI</div>
+                  <div>
+                    <span>Learning Inquiry</span>
+                    <h4>학습문의</h4>
+                  </div>
+                </div>
+
+                <div class="cx-code-map-chip-list">
+                  <span><b>LI1</b> U2M · Dream One</span>
+                  <span><b>LI2</b> Dream Class · Plus</span>
+                  <span><b>LI3</b> GLEC</span>
+                </div>
+              </article>
+
+              <article class="cx-code-map-group cx-code-map-gi">
+                <div class="cx-code-map-group-head">
+                  <div class="cx-code-map-code">GI</div>
+                  <div>
+                    <span>General Inquiry</span>
+                    <h4>사용·일반문의</h4>
+                  </div>
+                </div>
+
+                <div class="cx-code-map-chip-list">
+                  <span><b>GI1</b> 기기·접속</span>
+                  <span><b>GI2</b> 수강료</span>
+                  <span><b>GI3</b> 교재</span>
+                  <span><b>GI4</b> 올리미앱</span>
+                  <span><b>GI5</b> 캠퍼스·그룹웨어</span>
+                  <span><b>GI6</b> 방과후</span>
+                </div>
+              </article>
+
+              <article class="cx-code-map-group cx-code-map-oh">
+                <div class="cx-code-map-group-head">
+                  <div class="cx-code-map-code">OH</div>
+                  <div>
+                    <span>Other</span>
+                    <h4>기타·예외문의</h4>
+                  </div>
+                </div>
+
+                <div class="cx-code-map-chip-list">
+                  <span><b>OH1</b> 연락처 없음</span>
+                  <span><b>OH2</b> 부재중</span>
+                  <span><b>OH3</b> 외부기관·협력업체</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="cx-code-map-record">
+              <span>RECORD FIELDS</span>
+              <p>
+                날짜 → 문의자 → 분류 코드 → 문의 내용 → 조치 내용 → 이관 부서 → 완료 상태
+              </p>
             </div>
           </article>
 
-          <div class="cx-card cx-role-panel">
+          <div class="cx-card cx-role-panel cx-taxonomy-role-panel">
             <div class="cx-role-row">
               <div class="cx-role-label"><span>Before</span></div>
               <div class="cx-role-value">문의 유형 기준이 없고 상담·조치 내용이 자유서술 방식으로만 누적</div>

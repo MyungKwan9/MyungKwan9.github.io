@@ -1,0 +1,77 @@
+/* 상담 유형 코드화 대표 사례 전용 보완 스타일 */
+
+.cx-desc + .cx-desc {
+  margin-top: 14px;
+}
+
+#cs-taxonomy-case .cx-knowledge-card {
+  min-height: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+  gap: 30px;
+  align-items: start;
+}
+
+#cs-taxonomy-case .cx-case-mark {
+  width: auto;
+  min-width: 48px;
+  padding: 0 10px;
+  border-radius: 999px;
+}
+
+#cs-taxonomy-case .cx-simple-table {
+  align-self: stretch;
+  margin-top: 2px;
+}
+
+#cs-taxonomy-case .cx-simple-table div {
+  grid-template-columns: 0.82fr 0.76fr 1.72fr;
+}
+
+#cs-taxonomy-case .cx-role-panel {
+  margin-top: 18px;
+}
+
+#cs-taxonomy-case .cx-role-label {
+  color: var(--cx-blue);
+}
+
+#extension-cases .cx-case-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#extension-cases .cx-case-card {
+  min-height: 360px;
+}
+
+@media (max-width: 1040px) {
+  #cs-taxonomy-case .cx-knowledge-card,
+  #extension-cases .cx-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #extension-cases .cx-case-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  #cs-taxonomy-case .cx-simple-table div {
+    grid-template-columns: 0.8fr 0.72fr 1.48fr;
+  }
+
+  #cs-taxonomy-case .cx-simple-table span {
+    padding: 9px 7px;
+  }
+}
+
+@media print {
+  #cs-taxonomy-case .cx-knowledge-card,
+  #extension-cases .cx-case-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #cs-taxonomy-case .cx-role-panel {
+    margin-top: 12px !important;
+  }
+}

@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>CS/VAN 운영 개선·지식관리 사례 | MK Portfolio</title>
+  <title>CS 상담 유형 코드화·운영 개선 사례 | MK Portfolio</title>
 
   <meta
     name="description"
-    content="CS/VAN 운영지원 경험을 바탕으로 반복 문의와 운영 이슈를 FAQ, SOP, 운영 매뉴얼, KPI 리포팅, 지식관리 화면, AI 활용 업무개선 MVP로 연결한 운영 개선 사례입니다."
+    content="분류 기준이 없던 CS 상담 기록에 4개 대분류와 16개 세부 코드를 설계하고, 일별 기록을 월간·분기 분석과 FAQ·SOP·KPI·지식관리 구조로 연결한 운영 개선 사례입니다."
   />
 
   <link rel="stylesheet" href="./cx-improvement.css?v=5" />
+  <link rel="stylesheet" href="./cx-improvement-case.css?v=1" />
 </head>
 
 <body>
@@ -44,29 +45,30 @@
             </h1>
 
             <p class="cx-subtitle">
-              반복 문의 유형화 · FAQ/Q&amp;A 구조화 · 운영 매뉴얼 · KPI 시각화 · 지식관리 MVP
+              상담 유형 코드화 · 일별 기록 표준화 · 월간/분기 분석 · FAQ/SOP · KPI 시각화
             </p>
 
             <p class="cx-desc">
-              CS/VAN 현업에서 반복 문의와 운영 이슈를 발견하고, 이를 문의 유형 분류,
-              FAQ·Q&amp;A 구조화, 사용 매뉴얼, CS 게시판 운영 구조, KPI 시각화 MVP,
-              지식관리 앱 프로토타입 형태로 정리한 운영 개선 포트폴리오입니다.
-              모든 예시는 실제 고객정보가 아닌 익명화된 샘플 구조를 기반으로 제작했습니다.
+              기존에는 상담 유형을 구분하는 공통 기준이 없어 문의와 조치 내용을
+              자유서술 방식으로만 기록했습니다. 이를 개선하기 위해 기술지원, 학습문의,
+              사용문의, 기타의 4개 대분류와 16개 세부 코드를 설계하고,
+              문의자·문의 내용·조치·이관·완료 상태를 함께 기록하는 구조로 전환했습니다.
             </p>
 
             <p class="cx-desc">
-              이 사례는 CX 운영관리뿐 아니라 B2B 운영지원, 고객사 운영관리, 서비스 운영,
-              영업지원, AI 활용 업무개선 포지션에서도 활용 가능한 문제 구조화 경험을
-              보여주기 위한 목적입니다.
+              일별 상담 기록은 월간·분기 요약과 반복 이슈 분석으로 연결했으며,
+              해당 파일럿 방식은 이후 본사의 Google Sheets 기반 응대 케이스 정리 체계를
+              추진하는 참고 구조로 확장되었습니다. 공개 페이지에는 실제 고객정보가 아닌
+              익명화된 구조와 샘플만 사용했습니다.
             </p>
 
             <div class="cx-tags">
+              <span class="cx-tag">상담 코드 체계</span>
               <span class="cx-tag">운영지원</span>
               <span class="cx-tag">FAQ / SOP</span>
-              <span class="cx-tag">지식관리</span>
+              <span class="cx-tag">월간·분기 분석</span>
               <span class="cx-tag">KPI 리포팅</span>
-              <span class="cx-tag">프로세스 개선</span>
-              <span class="cx-tag">AI Workflow</span>
+              <span class="cx-tag">지식관리</span>
             </div>
 
             <div class="cx-hero-actions">
@@ -88,23 +90,23 @@
               <div class="dashboard-stat-grid">
                 <div class="dashboard-stat-card">
                   <div class="stat-icon"></div>
-                  <p>운영 이슈</p>
-                  <strong>Issue Type</strong>
+                  <p>대분류</p>
+                  <strong>4 Categories</strong>
                 </div>
                 <div class="dashboard-stat-card">
                   <div class="stat-icon"></div>
-                  <p>처리 기준</p>
-                  <strong>FAQ / SOP</strong>
+                  <p>세부 분류</p>
+                  <strong>16 Codes</strong>
                 </div>
                 <div class="dashboard-stat-card">
                   <div class="stat-icon"></div>
-                  <p>지식 자산</p>
-                  <strong>Knowledge Hub</strong>
+                  <p>분석 주기</p>
+                  <strong>Monthly / Quarterly</strong>
                 </div>
                 <div class="dashboard-stat-card">
                   <div class="stat-icon"></div>
-                  <p>업무 개선</p>
-                  <strong>AI Workflow</strong>
+                  <p>조직 확장</p>
+                  <strong>Google Sheets</strong>
                 </div>
               </div>
 
@@ -151,8 +153,8 @@
                   <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
                 </svg>
               </div>
-              <h3 class="cx-card-title">운영 이슈 발견</h3>
-              <p class="cx-card-text">반복 문의와 운영 이슈의 패턴을 관찰하고 정리</p>
+              <h3 class="cx-card-title">분류 기준 부재 발견</h3>
+              <p class="cx-card-text">자유서술 기록만으로 반복 문의와 처리 흐름을 집계하기 어려운 문제 확인</p>
             </article>
 
             <div class="cx-arrow">→</div>
@@ -164,8 +166,8 @@
                   <path d="M3 7h5l2 3h11v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M14 14h6"/>
                 </svg>
               </div>
-              <h3 class="cx-card-title">반복 이슈 유형화</h3>
-              <p class="cx-card-text">문의와 장애 유형을 코드화하고 재사용 가능한 기준으로 정리</p>
+              <h3 class="cx-card-title">상담 유형 코드화</h3>
+              <p class="cx-card-text">4개 대분류와 16개 세부 코드를 정의해 공통 분류 기준 설계</p>
             </article>
 
             <div class="cx-arrow">→</div>
@@ -177,8 +179,8 @@
                   <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/>
                 </svg>
               </div>
-              <h3 class="cx-card-title">처리 기준·SOP 정리</h3>
-              <p class="cx-card-text">FAQ, Q&amp;A, 업무 매뉴얼을 운영 기준으로 재구성</p>
+              <h3 class="cx-card-title">기록·집계 구조 표준화</h3>
+              <p class="cx-card-text">문의자, 조치, 이관, 완료 상태를 일별 기록과 월간·분기 요약으로 연결</p>
             </article>
 
             <div class="cx-arrow">→</div>
@@ -190,47 +192,95 @@
                   <path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5M12 16V8M16 16v-9"/>
                 </svg>
               </div>
-              <h3 class="cx-card-title">지식관리/MVP 구조화</h3>
-              <p class="cx-card-text">운영 흐름을 대시보드와 지식관리 앱 형태로 시각화</p>
+              <h3 class="cx-card-title">운영 개선 자산으로 확장</h3>
+              <p class="cx-card-text">반복 이슈를 FAQ·SOP·KPI·지식관리 및 조직 공유 구조로 전환</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="cx-section">
+      <section class="cx-section" id="cs-taxonomy-case">
         <div class="cx-container">
-          <h2 class="cx-section-title">핵심 사례</h2>
+          <h2 class="cx-section-title">대표 사례 · 상담 유형 코드화 및 월간 분석 체계</h2>
+
+          <article class="cx-card cx-case-card cx-knowledge-card">
+            <div>
+              <div class="cx-case-head">
+                <span class="cx-case-mark">CASE</span>
+                <h3 class="cx-case-title">분류 기준이 없던 상담 기록을 운영 데이터로 전환</h3>
+              </div>
+
+              <p class="cx-card-text cx-knowledge-summary">
+                기술지원, 학습문의, 사용문의, 기타의 4개 대분류 아래
+                총 16개 세부 코드를 설계했습니다. 상담자가 같은 기준으로 기록할 수 있도록
+                문의자 유형, 문의 내용, 조치 내용, 이관 부서, 완료 상태를 하나의 흐름으로 묶었습니다.
+              </p>
+
+              <ul class="cx-case-list cx-knowledge-list">
+                <li>상담 유형을 TS·LI·GI·OH 코드로 구분해 반복 문의를 집계 가능한 데이터로 전환</li>
+                <li>일별 기록을 카테고리별 집계, 원격지원 분석, 월간 요약, 분기별 요약으로 연결</li>
+                <li>개인 메모 중심 기록을 팀 단위 공유와 FAQ·SOP 후보 발굴이 가능한 구조로 개선</li>
+                <li>실제 운영 방식은 이후 본사의 Google Sheets 기반 응대 케이스 정리 체계에 참고·확장</li>
+              </ul>
+
+              <p class="cx-card-text cx-knowledge-note">
+                ※ 실제 고객명, 캠퍼스명, 연락처, 상세 장애 내용은 공개하지 않고 구조와 익명화 샘플만 사용
+              </p>
+            </div>
+
+            <div class="cx-simple-table" aria-label="상담 유형 코드 분류표">
+              <div class="cx-table-head"><span>대분류</span><span>코드</span><span>분류 범위</span></div>
+              <div><span>기술지원</span><span>TS1~TS4</span><span>프로그램·서비스별 기술 오류 및 원격지원</span></div>
+              <div><span>학습문의</span><span>LI1~LI3</span><span>교사·학생의 학습 기능 및 사용 방법</span></div>
+              <div><span>사용문의</span><span>GI1~GI6</span><span>기기·수강료·교재·앱·캠퍼스 업무</span></div>
+              <div><span>기타</span><span>OH1~OH3</span><span>연락 불가·부재·외부기관 및 협력업체</span></div>
+            </div>
+          </article>
+
+          <div class="cx-card cx-role-panel">
+            <div class="cx-role-row">
+              <div class="cx-role-label"><span>Before</span></div>
+              <div class="cx-role-value">문의 유형 기준이 없고 상담·조치 내용이 자유서술 방식으로만 누적</div>
+            </div>
+
+            <div class="cx-role-row">
+              <div class="cx-role-label"><span>분류 체계</span></div>
+              <div class="cx-role-value">4개 대분류와 16개 세부 코드로 문의 유형을 공통 기준화</div>
+            </div>
+
+            <div class="cx-role-row">
+              <div class="cx-role-label"><span>기록 필드</span></div>
+              <div class="cx-role-value">날짜 → 문의자 → 분류 코드 → 문의 내용 → 조치 내용 → 이관 부서 → 완료 상태</div>
+            </div>
+
+            <div class="cx-role-row">
+              <div class="cx-role-label"><span>분석 구조</span></div>
+              <div class="cx-role-value">일별 상담 기록 → 카테고리별 집계 → 월간 요약 → 분기별 추이 및 원격지원 분석</div>
+            </div>
+
+            <div class="cx-role-row">
+              <div class="cx-role-label"><span>운영 영향</span></div>
+              <div class="cx-role-value">반복 문의와 특이 사례를 팀 단위로 공유하고 FAQ·SOP·운영 리포트 후보로 재사용</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cx-section" id="extension-cases">
+        <div class="cx-container">
+          <h2 class="cx-section-title">확장 사례</h2>
 
           <div class="cx-case-grid">
             <article class="cx-card cx-case-card">
               <div>
                 <div class="cx-case-head">
                   <span class="cx-case-mark">01</span>
-                  <h3 class="cx-case-title">반복 이슈 유형 분류</h3>
-                </div>
-                <ul class="cx-case-list">
-                  <li>반복 문의와 운영 이슈를 코드화하여 FAQ, SOP, 리포팅에 재사용 가능한 기준으로 정리</li>
-                  <li>상담 기준과 운영 흐름을 한눈에 파악 가능하도록 구조화</li>
-                </ul>
-              </div>
-
-              <div class="cx-simple-table">
-                <div class="cx-table-head"><span>코드</span><span>유형</span><span>예시</span></div>
-                <div><span>PAY-01</span><span>결제/승인</span><span>승인 실패 / 결제 오류</span></div>
-                <div><span>SET-01</span><span>정산/조회</span><span>입금 지연 / 조회 문의</span></div>
-                <div><span>APP-01</span><span>앱 사용</span><span>사용법 / 오류 확인</span></div>
-              </div>
-            </article>
-
-            <article class="cx-card cx-case-card">
-              <div>
-                <div class="cx-case-head">
-                  <span class="cx-case-mark">02</span>
                   <h3 class="cx-case-title">FAQ / SOP 구조화</h3>
                 </div>
                 <ul class="cx-case-list">
-                  <li>반복 답변과 처리 기준을 Q&amp;A, 업무 매뉴얼, 운영 안내 문서로 구조화</li>
-                  <li>챗봇 응답 DB나 내부 지식관리 화면에 활용될 수 있는 문서 구조를 지원</li>
+                  <li>분류된 반복 문의와 처리 기준을 Q&amp;A, 업무 매뉴얼, 운영 안내 문서로 구조화</li>
+                  <li>코드별 주요 문의와 표준 조치를 연결해 신규 담당자도 검색·재사용 가능한 기준 마련</li>
+                  <li>챗봇 응답 DB와 내부 지식관리 화면으로 확장 가능한 문서 구조를 검토</li>
                 </ul>
               </div>
 
@@ -246,14 +296,13 @@
             <article class="cx-card cx-case-card">
               <div>
                 <div class="cx-case-head">
-                  <span class="cx-case-mark">03</span>
+                  <span class="cx-case-mark">02</span>
                   <h3 class="cx-case-title">KPI·운영 리포트 구조화</h3>
                 </div>
                 <ul class="cx-case-list">
-                  <li>운영 지표를 카드, 차트, 표 구조로 시각화</li>
-                  <li>익명화 샘플 데이터를 활용한 KPI Dashboard MVP 제작</li>
-                  <li>거래 성공률, 실패율, 취소율, 정산 이슈, VOC 유형을 KPI 항목으로 구조화</li>
-                  <li>SQLD 준비를 통해 데이터 항목과 지표 관계를 이해하는 방향으로 학습 중</li>
+                  <li>상담 코드, 문의자 유형, 이관·완료 상태를 월간·분기 리포트 항목으로 연결</li>
+                  <li>운영 지표를 카드, 차트, 표 구조로 시각화하고 반복 이슈의 우선순위를 확인</li>
+                  <li>VAN 거래·정산 운영 경험은 익명화 샘플 기반 KPI Dashboard MVP로 별도 구현</li>
                   <li>AI-assisted workflow로 화면 구조와 코드 초안을 빠르게 검증</li>
                 </ul>
               </div>
@@ -274,19 +323,19 @@
             <article class="cx-card cx-case-card">
               <div>
                 <div class="cx-case-head">
-                  <span class="cx-case-mark">04</span>
+                  <span class="cx-case-mark">03</span>
                   <h3 class="cx-case-title">지식관리 화면 구조 설계</h3>
                 </div>
                 <ul class="cx-case-list">
-                  <li>CS 게시판, FAQ, 매뉴얼, 검색 기능을 통합해 반복 업무를 줄일 수 있는 구조로 정리</li>
-                  <li>카테고리와 태그를 추가하여 게시글 분류 기준을 개선</li>
-                  <li>키워드 검색이 가능하도록 반복 이슈와 문의 유형을 구조화</li>
+                  <li>상담 코드, FAQ, 매뉴얼, 장애 대응 사례를 검색 가능한 지식 구조로 연결</li>
+                  <li>카테고리와 태그를 추가해 게시글과 사례의 분류 기준을 개선</li>
+                  <li>키워드 검색으로 반복 이슈와 처리 기준을 빠르게 찾을 수 있는 화면 흐름 설계</li>
                 </ul>
               </div>
 
               <div class="cx-board-visual">
                 <div class="cx-board-search">Keyword Search</div>
-                <div class="cx-board-tags"><span>결제</span><span>정산</span><span>단말기</span><span>앱 사용</span></div>
+                <div class="cx-board-tags"><span>기술지원</span><span>학습문의</span><span>사용문의</span><span>기타</span></div>
                 <div class="cx-board-list"><span></span><span></span><span></span></div>
               </div>
             </article>
@@ -371,11 +420,11 @@
                   <path d="M4 4h16v16H4z"/>
                   <path d="M8 9h8M8 13h8M8 17h5"/>
                 </svg>
-                <span>학습 연결</span>
+                <span>상담 데이터</span>
               </div>
               <div class="cx-role-value">
-                SQLD 준비를 통해 데이터 모델링과 기본 조회 구조를 학습하며,
-                이를 VAN 결제 운영 KPI 대시보드의 데이터 항목 설계와 지표 구조화에 연결하고 있습니다.
+                일별 기록의 분류 코드, 문의자 유형, 조치 내용, 이관 부서, 완료 상태를
+                카테고리별 집계와 월간·분기 요약으로 연결했습니다.
               </div>
             </div>
 
@@ -389,8 +438,8 @@
                 <span>KPI 항목</span>
               </div>
               <div class="cx-role-value">
-                거래 성공률, 실패율, 취소율, 정산 이슈, VOC 유형 등 운영 데이터를
-                익명화 샘플 데이터 기반의 KPI 구조로 정리했습니다.
+                상담 유형별 발생 건수, 문의자 유형, 이관·완료 현황과
+                거래 성공률, 실패율, 취소율, 정산 이슈 등 운영 데이터를 KPI 구조로 정리했습니다.
               </div>
             </div>
 
@@ -437,8 +486,8 @@
                 </svg>
               </div>
               <div>
-                <h3 class="cx-card-title">문의 유형화</h3>
-                <p class="cx-card-text">반복 문의를 분류 가능한 운영 단위로 정리</p>
+                <h3 class="cx-card-title">운영 데이터 기준 확보</h3>
+                <p class="cx-card-text">자유서술 상담 기록을 집계 가능한 코드와 필드 구조로 전환</p>
               </div>
             </article>
 
@@ -471,8 +520,8 @@
                 </svg>
               </div>
               <div>
-                <h3 class="cx-card-title">운영 가시성 향상</h3>
-                <p class="cx-card-text">운영 흐름을 카드, 차트, 표, 앱 화면 형태로 파악 가능하게 구성</p>
+                <h3 class="cx-card-title">조직 공유 기반 확대</h3>
+                <p class="cx-card-text">개인 기록을 팀 단위 응대 사례와 운영 리포트 구조로 확장</p>
               </div>
             </article>
           </div>
@@ -493,14 +542,14 @@
                 <span>역할</span>
               </div>
               <div class="cx-role-value">
-                문의 유형 정리, FAQ/Q&amp;A 구조화, 매뉴얼 작성, KPI 구조 설계,
-                CS 게시판 운영 구조 정리, 지식관리 앱 프로토타입 기획
+                상담 유형 코드 체계 설계, 일별 기록 필드 정의, 월간·분기 집계 구조화,
+                FAQ/Q&amp;A·매뉴얼 작성, KPI 구조 설계, 지식관리 앱 프로토타입 기획
               </div>
             </div>
 
             <div class="cx-role-row">
               <div class="cx-role-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5z"/></svg><span>도구</span></div>
-              <div class="cx-role-value">Excel, Microsoft Office, GPT, HTML/CSS, JavaScript, React/Vite, Recharts, GitHub, Vercel</div>
+              <div class="cx-role-value">Excel, Google Sheets, Microsoft Office, GPT, HTML/CSS, JavaScript, React/Vite, Recharts, GitHub, Vercel</div>
             </div>
 
             <div class="cx-role-row">
@@ -514,7 +563,7 @@
                 <span>방식</span>
               </div>
               <div class="cx-role-value">
-                기획, 정보 구조, 문구, 샘플 데이터 설계는 직접 수행하고,
+                현업 상담 흐름을 바탕으로 분류 기준, 기록 필드, 집계 방식, 문구와 샘플 데이터는 직접 설계하고,
                 구현 과정에서는 AI-assisted workflow로 화면 구조와 기능 흐름을 빠르게 검증했습니다.
               </div>
             </div>
@@ -540,8 +589,8 @@
 
           <div>
             <h2>
-              고객 문의와 운영 이슈를 단순 처리로 끝내지 않고,<br />
-              FAQ·SOP·리포트·지식관리 화면으로 재사용 가능한 개선 자산으로 구조화합니다.
+              고객 문의를 단순 처리로 끝내지 않고,<br />
+              분류 기준 → 운영 데이터 → FAQ·SOP·KPI·지식관리로 연결합니다.
             </h2>
 
             <div class="cx-career-tags">

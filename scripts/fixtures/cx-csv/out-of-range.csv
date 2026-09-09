@@ -1,0 +1,3 @@
+ticket_id,created_at,first_response_at,resolved_at,channel,category,subcategory,status,priority,summary,root_cause_tag,next_action
+LIMIT-001,2000-01-01 00:00:00,,,채팅,기타,일반 문의,미처리,일반,범위 검증용 가상 문의,확인 필요,담당 확인
+LIMIT-002,2026-09-01 00:00:00,,,채팅,기타,일반 문의,미처리,일반,범위 검증용 가상 문의,확인 필요,담당 확인

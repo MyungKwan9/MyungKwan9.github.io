@@ -1,0 +1,2 @@
+ticket_id,created_at,first_response_at,resolved_at,channel,category,subcategory,status,priority,summary,root_cause_tag,next_action
+CHECK-001,2026-02-30 10:00:00,2026-09-01 11:00:00,2026-09-01 12:00:00,채팅,결제·취소,결제 취소 안내,해결,일반,예제 문의,안내 확인,처리 기록

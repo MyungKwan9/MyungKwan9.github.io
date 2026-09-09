@@ -474,7 +474,9 @@
       if (text.includes("\uFFFD")) throw new Error("문자 인코딩을 확인해 주세요. CSV UTF-8 형식으로 저장해 주세요.");
       const tickets = parseCsv(text).map(normalizeTicket);
       validateTickets(tickets);
-      activateDataset(tickets, "user", file);
+      // Preserve CSV text and add exactly one UTF-8 BOM for direct opening in Excel.
+      const downloadFile = new Blob(["\uFEFF", text.replace(/^\uFEFF+/, "")], { type: "text/csv;charset=utf-8" });
+      activateDataset(tickets, "user", downloadFile);
       setDataMessage("브라우저에서만 처리되며 서버에 저장되지 않습니다. 분석 기준시각을 확인해 주세요.");
     } catch (error) {
       setDataMessage("", `${error.message}${state.tickets.length ? " 현재 데이터와 필터는 유지됩니다." : ""}`);

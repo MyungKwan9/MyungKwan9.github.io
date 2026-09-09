@@ -160,7 +160,7 @@ function assertData() {
 }
 const headers = Object.keys(rows[0]);
 const csvCell = value => '"' + String(value).replaceAll('"', '""') + '"';
-const toCsv = () => [headers.join(","), ...rows.map(row => headers.map(key => csvCell(row[key])).join(","))].join("\n") + "\n";
+const toCsv = () => "\uFEFF" + [headers.join(","), ...rows.map(row => headers.map(key => csvCell(row[key])).join(","))].join("\n") + "\n";
 if (require.main === module) {
   assertData();
   const output = path.join(__dirname, "..", "data", "cx-tickets-2026-08.csv");

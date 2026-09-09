@@ -6,7 +6,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const sample = fs.readFileSync(path.join(root, 'data/cx-tickets-2026-08.csv'), 'utf8');
-const template = fs.readFileSync(path.join(root, 'data/cx-tickets-template.csv'), 'utf8');
+const template = fs.readFileSync(path.join(root, 'data/cx-tickets-template.csv'), 'utf8').replace(/^\uFEFF/, '');
 const production = fs.readFileSync(path.join(root, 'cx-dashboard.js'), 'utf8');
 
 class Element {
@@ -30,7 +30,7 @@ async function boot() {
   const context = {
     document: { querySelector: $, querySelectorAll: () => [] }, window: {},
     console: { error: (...args) => { throw new Error(`Unexpected console error: ${args}`); } },
-    AbortSignal, Date,
+    AbortSignal, Date, Blob,
     URL: { createObjectURL: (file) => { const url = `blob:test-${++nextBlob}`; objectUrls.set(url, file); return url; }, revokeObjectURL: (url) => objectUrls.delete(url) },
     FileReader: class {
       readAsText(file, encoding) {
@@ -100,7 +100,10 @@ async function boot() {
   assert.match($('#paymentEvidence').textContent, /전체 4건/);
   assert.match($('#delayEvidence').textContent, /48시간 이상 미해결 1건/);
   assert.match($('#evidenceScope').textContent, /사용자 CSV/);
-  assert.equal(app.objectUrls.get($('#downloadCsv').href).contents, template);
+  const downloaded = app.objectUrls.get($('#downloadCsv').href);
+  assert.equal(Buffer.from(await downloaded.arrayBuffer()).toString('utf8'), '\uFEFF' + template);
+  assert.equal(downloaded.type, 'text/csv;charset=utf-8');
+  assert.equal(Buffer.from(await downloaded.arrayBuffer()).subarray(0, 3).toString('hex'), 'efbbbf');
   assert.equal(app.requests.length, 1, 'Reading a local file must not make a network request');
 
   $('#categoryFilter').value = '결제·환불'; $('#ticketFilters').emit('change');
@@ -151,6 +154,10 @@ async function boot() {
 
   await upload('\uFEFF' + template.replaceAll('\n', '\r\n'));
   assert.deepEqual(kpis(), ['4건', '2건', '1건', '3시간']);
+  const bomDownload = Buffer.from(await app.objectUrls.get($('#downloadCsv').href).arrayBuffer()).toString('utf8');
+  assert.equal(bomDownload, '\uFEFF' + template.replaceAll('\n', '\r\n'), 'Preserve CSV text and line endings without duplicating BOM');
+  await upload(bomDownload);
+  assert.deepEqual(kpis(), ['4건', '2건', '1건', '3시간'], 'Excel-compatible download can be uploaded again');
   await upload(template.replace('2026-09-01 10:00:00', '2026-09-01T01:00:00Z'));
   assert.deepEqual(kpis(), ['4건', '2건', '1건', '3시간']);
   assert.equal(app.objectUrls.size, 1);

@@ -5,7 +5,13 @@ const { rows, ANALYSIS_AT, assertData, toCsv, DESIGN } = require("./generate-cx-
 // Verify the actual shipped file before using the independently generated expectations.
 const sourcePath = path.join(__dirname, "..", "data", "cx-tickets-2026-08.csv");
 const sourceText = fs.readFileSync(sourcePath, "utf8").replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
-if (sourceText !== toCsv()) throw new Error("Shipped sample CSV differs from the validated sample data");
+if (sourceText !== toCsv().replace(/^\uFEFF/, "")) throw new Error("Shipped sample CSV differs from the validated sample data");
+for (const name of ["cx-tickets-2026-08.csv", "cx-tickets-template.csv"]) {
+  const bytes = fs.readFileSync(path.join(__dirname, "..", "data", name));
+  if (bytes.subarray(0, 3).toString("hex") !== "efbbbf" || bytes.subarray(3, 6).toString("hex") === "efbbbf") {
+    throw new Error(`${name} must start with exactly one UTF-8 BOM`);
+  }
+}
 
 const parseSeoul = (value) => value ? new Date(`${value.replace(" ", "T")}+09:00`) : null;
 const tickets = rows.map((row) => ({
